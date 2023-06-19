@@ -6,11 +6,11 @@ project:
 
 website:
   title: "HiAER-Spike"
-  # repo-url: https://github.com/shashankbansal6/HiAER-Spike
+  # repo-url: https://github.com/Integrated-Systems-Neuroengineering/HiAER-Spike
   repo-actions: [issue]
   page-footer:
     left:
-      - text: "<div id='left-footer' style='display: flex; justify-content: space-between; align-items: center;'><div><img src='/images/isn_brain_logo_square.png' alt='ISN Lab Logo' style='margin-right: 10px;'><span>© Integrated Systems Neuroengineering Lab, released under the <a href='https://creativecommons.org/licenses/by/4.0/'>CC BY 4.0 license</a></span></div><span>Built with <a href='https://quarto.org'>Quarto</a></span></div>"
+      - text: "<div id='left-footer' style='display: flex; justify-content: space-between; align-items: center;'><div><img src='/images/isn_brain_logo_square.png' alt='ISN Lab Logo' style='margin-right: 10px;'><span>© 2023 Integrated Systems Neuroengineering Lab, released under the <a href='https://creativecommons.org/licenses/by/4.0/'>CC BY 4.0 license</a></span></div><span>Built with <a href='https://quarto.org'>Quarto</a></span></div>"
   favicon: /images/favicon_io/cri_favicon/favicon.ico
   navbar:
     search: true
@@ -28,13 +28,15 @@ website:
         menu:
           - text: Overview
             href: menu/api/overview.qmd
+          - text: Usage
+            href: menu/api/usage.qmd
           - text: Submitting Jobs to CRI
             href: menu/api/submitting-jobs.qmd
     right:
       - icon: github
         href: https://github.com/shashankbansal6/HiAER-Spike.git
         aria-label: GitHub
-      - text: "<img src='/images/isn_brain_logo_square.png' alt='ISN Lab Logo' height='25px'> ISN @ UC San Diego"
+      - text: "<img src='/images/favicon/isn_brain_only/favicon.ico' alt='ISN Lab Logo' height='25px'> ISN @ UC San Diego"
         href: https://isn.ucsd.edu/
 format:
   html:

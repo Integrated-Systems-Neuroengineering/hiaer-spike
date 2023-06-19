@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>HiAER-Spike - Convolutional SNN</title>
+<title>HiAER-Spike - Usage</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +19,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -132,7 +166,7 @@ ul.task-list li input[type="checkbox"] {
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="https://isn.ucsd.edu/" rel="" target="">
- <span class="menu-text"><img src="../../images/isn_brain_logo_square.png" alt="ISN Lab Logo" height="25px"> ISN @ UC San Diego</span></a>
+ <span class="menu-text"><img src="../../images/favicon/isn_brain_only/favicon.ico" alt="ISN Lab Logo" height="25px"> ISN @ UC San Diego</span></a>
   </li>  
 </ul>
             <div class="quarto-navbar-tools">
@@ -150,7 +184,8 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#using-a-convolutional-snn-to-classify" id="toc-using-a-convolutional-snn-to-classify" class="nav-link active" data-scroll-target="#using-a-convolutional-snn-to-classify">Using a Convolutional SNN to classify ???</a></li>
+  <li><a href="#running-on-the-simulator" id="toc-running-on-the-simulator" class="nav-link active" data-scroll-target="#running-on-the-simulator"><strong>Running on the Simulator</strong></a></li>
+  <li><a href="#defining-a-network" id="toc-defining-a-network" class="nav-link" data-scroll-target="#defining-a-network"><strong>Defining a Network</strong></a></li>
   </ul>
 </nav>
     </div>
@@ -159,7 +194,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Convolutional SNN</h1>
+<h1 class="title">Usage</h1>
 </div>
 
 
@@ -174,10 +209,78 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="using-a-convolutional-snn-to-classify" class="level2">
-<h2 class="anchored" data-anchor-id="using-a-convolutional-snn-to-classify">Using a Convolutional SNN to classify ???</h2>
+<section id="running-on-the-simulator" class="level3">
+<h3 class="anchored" data-anchor-id="running-on-the-simulator"><strong>Running on the Simulator</strong></h3>
+<p>On your local machine you can run networks using the Python based simulator of the CRI hardware.</p>
+</section>
+<section id="defining-a-network" class="level3">
+<h3 class="anchored" data-anchor-id="defining-a-network"><strong>Defining a Network</strong></h3>
+<p>Users are expected to provide three data structures in order to define a network</p>
+<section id="defining-the-configuration-dictionary" class="level4">
+<h4 class="anchored" data-anchor-id="defining-the-configuration-dictionary"><strong>Defining the Configuration Dictionary</strong></h4>
+<p>The configuration dictionary specifies a few properties that are shared by every neuron in the network</p>
+<ul>
+<li>neuron_type specifies the type of neuron model used to calculate membrane potentials</li>
+<li>global_neuron_params is a sub-dictionary of the configuration dictionary
+<ul>
+<li>v_thr is an entry in the global_neuron_params dictionary, it sets the membrane potential threshold for all neurons in the network</li>
+</ul></li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>configuration <span class="op">=</span> {}</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>configuration[neuron_type<span class="st">'] = I&amp;F</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="er">configuration</span>[<span class="st">'global_neuron_params'</span>] <span class="op">=</span> {}</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>configuration[<span class="st">'global_neuron_params'</span>][<span class="st">'v_thr'</span>] <span class="op">=</span> <span class="dv">4</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li><p>Defining the Axons Dictionary</p>
+<p>The axons dictionary configures inputs to the network. Axons are synapses connected to neurons in the network that the user can manually send spikes over at a given timestep. Each key in the dictionary is the name of an axon. Each value is a list of two element tuples. Each tuple defines an in-going synapse to a neuron. The first element is the name of a neuron in the network and the second element is the weight of the synaptic connection. Synapse weights must be integers, but they may be positive or negative.</p></li>
+</ul>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>axons <span class="op">=</span> {<span class="st">'alpha'</span>: [(<span class="st">'a'</span>, <span class="dv">3</span>)], <span class="st">'beta'</span>: [(<span class="st">'d'</span>, <span class="dv">3</span>)]}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li><p>Defining the Connections Dictionary:</p>
+<p>The connections dictionary defines the neurons in the network and the connections between them. Each key in the dictionary is the name of a neuron. Of note the names of neurons in the connections dictionary and the names of axons in the axons dictionary must be mutually exclusive. Each value is a list of two element tuples. Each tuple defines a synapse between neurons in the network. The first element is the name of the postsynaptic neuron and the the second element is the weight of the synapse. Synapse weights must be integers but they may be positive or negative. If a neuron has no outgoing synapses it’s synapse list may be left empty.</p></li>
+</ul>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>connections <span class="op">=</span> {<span class="st">'a'</span>: [(<span class="st">'b'</span>, <span class="dv">1</span>)], <span class="st">'b'</span>: [], <span class="st">'c'</span>: [], <span class="st">'d'</span>: [(<span class="st">'c'</span>, <span class="dv">1</span>)]}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li><p>Defining the Outputs List:</p>
+<p>The outputs list defines the neurons in the network the user wishes to receive spikes from. Each element in the list is the key of a neuron in the connections dictionary.</p></li>
+</ul>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>outputs <span class="op">=</span> [<span class="st">'a'</span>, <span class="st">'b'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="defining-stochastic-behavior" class="level4">
+<h4 class="anchored" data-anchor-id="defining-stochastic-behavior"><strong>Defining Stochastic Behavior</strong></h4>
+<p>HiAER-Spike supports randomly perturbing the membrane potential of neurons at each timestep of execution. To enable this perturbation the perturb variable is set to True. The amplitude of this perturbation can also be scaled by setting the perturbMag variable (default = 0). perturbMag takes integer values between 0 and 18 and multiplies the random noise to be added to the membrane potential by 2<sup>perturbMag</sup>.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>perturb <span class="op">=</span> <span class="va">True</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>perturbMag <span class="op">=</span> <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="initializing-a-network" class="level4">
+<h4 class="anchored" data-anchor-id="initializing-a-network"><strong>Initializing a network</strong></h4>
+<p>Once we’ve defined the above dictionaries and list we must pass them to the CRI_network constructor to create a CRI_network object.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>network <span class="op">=</span> CRI_network(</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    axons<span class="op">=</span>axons,</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    connections<span class="op">=</span>connections,</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    config<span class="op">=</span>config,</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    outputs<span class="op">=</span>outputs,</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    perturb<span class="op">=</span>perturb,</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    perturbMag<span class="op">=</span>perturbMag</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="running-a-timestep" class="level4">
+<h4 class="anchored" data-anchor-id="running-a-timestep"><strong>Running a Timestep</strong></h4>
+<p>Once we’ve constructed an CRI_network object we can run a timestep. We do so by calling the step() method of CRI_network. This method expects a single input called inputs. Inputs defines the inputs to the network at the current timestep, in particular it is a list of names of axons that you wish to carry spikes into the network at the current timestep. Normally network.step() returns a list of the keys that correspond to neurons that spiked during the given timestep, however the membranePotential parameter can be set to True to additionally output the membranePotentials for all neurons in the network.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>inputs <span class="op">=</span> [<span class="st">'alpha'</span>,<span class="st">'beta'</span>]</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>spikes <span class="op">=</span> network.step(inputs)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co">#Alternative</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>potentials, spikes <span class="op">=</span> network.step(inputs, membranePotential<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This method will return a list of membrane potentials for all neurons in the network after the current timestep has elapsed.</p>
+</section>
+<section id="updating-synapse-weights" class="level4">
+<h4 class="anchored" data-anchor-id="updating-synapse-weights"><strong>Updating Synapse Weights</strong></h4>
+<p>Once the CRI_network class the topology of the network is fixed, that is what axon and neurons are in the network and how they are connected via synapses may not be changed. However it is possible to update the weight of preexisting synapses in the network. This can be done by calling the write_synapse() method of CRI_network. write_synapse() takes three arguments, the presynaptic neuron name, the postsynaptic neuron name, and the new synapse weight.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>network.write_synapse(<span class="st">'a'</span>, <span class="st">'b'</span>, <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -420,7 +523,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     <div class="nav-footer-left">
       <ul class="footer-items list-unstyled">
     <li class="nav-item">
- <div id="left-footer" style="display: flex; justify-content: space-between; align-items: center;"><div><img src="../../images/isn_brain_logo_square.png" alt="ISN Lab Logo" style="margin-right: 10px;"><span>© Integrated Systems Neuroengineering Lab, released under the <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0 license</a></span></div><span>Built with <a href="https://quarto.org">Quarto</a></span></div>
+ <div id="left-footer" style="display: flex; justify-content: space-between; align-items: center;"><div><img src="../../images/isn_brain_logo_square.png" alt="ISN Lab Logo" style="margin-right: 10px;"><span>© 2023 Integrated Systems Neuroengineering Lab, released under the <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0 license</a></span></div><span>Built with <a href="https://quarto.org">Quarto</a></span></div>
   </li>  
 </ul>
     </div>   

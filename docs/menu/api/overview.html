@@ -148,6 +148,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="dropdown-text">Overview</span></a>
   </li>  
         <li>
+    <a class="dropdown-item" href="../../menu/api/usage.html" rel="" target="">
+ <span class="dropdown-text">Usage</span></a>
+  </li>  
+        <li>
     <a class="dropdown-item" href="../../menu/api/submitting-jobs.html" rel="" target="">
  <span class="dropdown-text">Submitting Jobs to CRI</span></a>
   </li>  
@@ -186,13 +190,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#simple-installation" id="toc-simple-installation" class="nav-link" data-scroll-target="#simple-installation"><strong>Simple Installation</strong></a></li>
   <li><a href="#development-installation" id="toc-development-installation" class="nav-link" data-scroll-target="#development-installation"><strong>Development Installation</strong></a></li>
   </ul></li>
-  <li><a href="#usage" id="toc-usage" class="nav-link" data-scroll-target="#usage"><strong>Usage</strong></a>
-  <ul class="collapse">
-  <li><a href="#running-on-the-simulator" id="toc-running-on-the-simulator" class="nav-link" data-scroll-target="#running-on-the-simulator"><strong>Running on the Simulator</strong></a></li>
-  <li><a href="#defining-a-network" id="toc-defining-a-network" class="nav-link" data-scroll-target="#defining-a-network"><strong>Defining a Network</strong></a></li>
-  </ul></li>
   </ul>
-<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/shashankbansal6/HiAER-Spike/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+</nav>
     </div>
 <!-- main -->
 <main class="content column-page-left" id="quarto-document-content">
@@ -249,69 +248,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><p>finally activate the development environment</p></li>
 </ul>
 <div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> poetry shell</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-</section>
-<section id="usage" class="level2">
-<h2 class="anchored" data-anchor-id="usage"><strong>Usage</strong></h2>
-<section id="running-on-the-simulator" class="level3">
-<h3 class="anchored" data-anchor-id="running-on-the-simulator"><strong>Running on the Simulator</strong></h3>
-<p>On your local machine you can run networks using the Python based simulator of the CRI hardware.</p>
-</section>
-<section id="defining-a-network" class="level3">
-<h3 class="anchored" data-anchor-id="defining-a-network"><strong>Defining a Network</strong></h3>
-<p>Users are expected to provide three data structures in order to define a network</p>
-<section id="defining-the-configuration-dictionary" class="level4">
-<h4 class="anchored" data-anchor-id="defining-the-configuration-dictionary"><strong>Defining the Configuration Dictionary</strong></h4>
-<p>The configuration dictionary specifies a few properties that are shared by every neuron in the network</p>
-<ul>
-<li>neuron_type specifies the type of neuron model used to calculate membrane potentials</li>
-<li>global_neuron_params is a sub-dictionary of the configuration dictionary
-<ul>
-<li>v_thr is an entry in the global_neuron_params dictionary, it sets the membrane potential threshold for all neurons in the network</li>
-</ul></li>
-</ul>
-<div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>configuration <span class="op">=</span> {}</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>configuration[neuron_type<span class="st">'] = I&amp;F</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="er">configuration</span>[<span class="st">'global_neuron_params'</span>] <span class="op">=</span> {}</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>configuration[<span class="st">'global_neuron_params'</span>][<span class="st">'v_thr'</span>] <span class="op">=</span> <span class="dv">4</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<ul>
-<li><p>Defining the Axons Dictionary</p>
-<p>The axons dictionary configures inputs to the network. Axons are synapses connected to neurons in the network that the user can manually send spikes over at a given timestep. Each key in the dictionary is the name of an axon. Each value is a list of two element tuples. Each tuple defines an in-going synapse to a neuron. The first element is the name of a neuron in the network and the second element is the weight of the synaptic connection. Synapse weights must be integers, but they may be positive or negative.</p></li>
-</ul>
-<div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>axons <span class="op">=</span> {<span class="st">'alpha'</span>: [(<span class="st">'a'</span>, <span class="dv">3</span>)], <span class="st">'beta'</span>: [(<span class="st">'d'</span>, <span class="dv">3</span>)]}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<ul>
-<li><p>Defining the Connections Dictionary:</p>
-<p>The connections dictionary defines the neurons in the network and the connections between them. Each key in the dictionary is the name of a neuron. Of note the names of neurons in the connections dictionary and the names of axons in the axons dictionary must be mutually exclusive. Each value is a list of two element tuples. Each tuple defines a synapse between neurons in the network. The first element is the name of the postsynaptic neuron and the the second element is the weight of the synapse. Synapse weights must be integers but they may be positive or negative. If a neuron has no outgoing synapses it’s synapse list may be left empty.</p></li>
-</ul>
-<div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>connections <span class="op">=</span> {<span class="st">'a'</span>: [(<span class="st">'b'</span>, <span class="dv">1</span>)], <span class="st">'b'</span>: [], <span class="st">'c'</span>: [], <span class="st">'d'</span>: [(<span class="st">'c'</span>, <span class="dv">1</span>)]}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<ul>
-<li><p>Defining the Outputs List:</p>
-<p>The outputs list defines the neurons in the network the user wishes to receive spikes from. Each element in the list is the key of a neuron in the connections dictionary.</p></li>
-</ul>
-<div class="sourceCode" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>outputs <span class="op">=</span> [<span class="st">'a'</span>, <span class="st">'b'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="initializing-a-network" class="level4">
-<h4 class="anchored" data-anchor-id="initializing-a-network"><strong>Initializing a network</strong></h4>
-<p>Once we’ve defined the above dictionaries and list we must pass them to the CRI_network constructor to create a CRI_network object.</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>network <span class="op">=</span> CRI_network(axons<span class="op">=</span>axons,connections<span class="op">=</span>connections,config<span class="op">=</span>config, outputs<span class="op">=</span>outputs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="running-a-timestep" class="level4">
-<h4 class="anchored" data-anchor-id="running-a-timestep"><strong>Running a Timestep</strong></h4>
-<p>Once we’ve constructed an CRI_network object we can run a timestep. We do so by calling the step() method of CRI_network. This method expects a single input called inputs. Inputs defines the inputs to the network at the current timestep, in particular it is a list of names of axons that you wish to carry spikes into the network at the current timestep. Normally network.step() returns a list of the keys that correspond to neurons that spiked during the given timestep, however the membranePotential parameter can be set to True to additionally output the membranePotentials for all neurons in the network.</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>inputs <span class="op">=</span> [<span class="st">'alpha'</span>,<span class="st">'beta'</span>]</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>spikes <span class="op">=</span> network.step(inputs)</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="co">#Alternative</span></span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>potentials, spikes <span class="op">=</span> network.step(inputs, membranePotential<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>This method will return a list of membrane potentials for all neurons in the network after the current timestep has elapsed.</p>
-</section>
-<section id="updating-synapse-weights" class="level4">
-<h4 class="anchored" data-anchor-id="updating-synapse-weights"><strong>Updating Synapse Weights</strong></h4>
-<p>Once the CRI_network class the topology of the network is fixed, that is what axon and neurons are in the network and how they are connected via synapses may not be changed. However it is possible to update the weight of preexisting synapses in the network. This can be done by calling the write_synapse() method of CRI_network. write_synapse() takes three arguments, the presynaptic neuron name, the postsynaptic neuron name, and the new synapse weight.</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>network.write_synapse(<span class="st">'a'</span>, <span class="st">'b'</span>, <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
-</section>
 </section>
 </section>
 
