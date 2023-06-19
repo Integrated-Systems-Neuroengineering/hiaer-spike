@@ -1,19 +1,41 @@
 project:
   type: website
+  output-dir: _site
+  preview:
+    port: 4200
 
 website:
   title: "HiAER-Spike"
+  page-footer: 
+    left: "© ISN Lab, released under the <a href='https://creativecommons.org/licenses/by/4.0/'>CC BY 4.0 license</a>"
+    right: "Built with <a href='https://quarto.org'>Quarto</a>"
+  favicon: images/cri_favicon/favicon.ico
   navbar:
+    search: true
+    logo: images/cri_logo.png
     left:
-      - href: index.qmd
-        text: Home
-      - about.qmd
-
+      - text: Home
+        href: index.qmd
+      - text: Tutorials
+        menu:
+          - text: CNN
+            href: tutorials/cnn.qmd
+          - text: MNIST
+            href: tutorials/mnist.qmd
+      - text: API
+        menu:
+          - text: Overview
+            href: api/overview.qmd
+          - text: Submitting Jobs
+            href: api/submitting-jobs.qmd
+    right:
+      - icon: github
+        href: https://github.com/shashankbansal6/HiAER-Spike.git
+        aria-label: GitHub
+      - text: ISN @ UC San Diego
+        href: https://isn.ucsd.edu/
 format:
   html:
-    theme: cosmo
+    theme: flatly
     css: styles.css
     toc: true
-
-
-

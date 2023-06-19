@@ -1,7 +1,10 @@
 ---
-title: "HiAER-Spike"
+title: ""
 ---
 
-This is a Quarto website.
+# Welcome to HiAER-Spike v0.1
 
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+HiAER-Spike is a Python library for interacting with the ISN CRI project hosted at SDSC. This project aims to make massive scale simulations of spiking neural networks easily accessible to the research community, and in particular researches interested in neuromorphic computing for artificial intelligence and neuroscience researchers. This library allows a user to define a spiking neural network and execute it on one of two backends: the CRI neuromorphic hardware or if the hardware is not available a python simulation of the hardware.
+
+<!-- ![](images/hiaer-spike-main.png) -->
+<img src="images/hiaer-spike-main.png"  width="550" height="900">
