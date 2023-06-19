@@ -1,5 +1,4 @@
 /.quarto/
 config.toml
 /_site/
-/docs/
-.DS_Store
+*.DS_Store*

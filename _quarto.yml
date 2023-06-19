@@ -6,33 +6,36 @@ project:
 
 website:
   title: "HiAER-Spike"
-  page-footer: 
-    left: "© ISN Lab, released under the <a href='https://creativecommons.org/licenses/by/4.0/'>CC BY 4.0 license</a>"
-    right: "Built with <a href='https://quarto.org'>Quarto</a>"
-  favicon: images/cri_favicon/favicon.ico
+  repo-url: https://github.com/shashankbansal6/HiAER-Spike
+  repo-actions: [issue]
+  page-footer:
+    left:
+      # - text: "<div id='left-footer' style='display: flex; align-items: center; font-size: 12px'><img src='/images/isn_brain_logo_square.png' alt='ISN Lab Logo' style='margin-right: 10px;'><span>© Integrated Systems Neuroengineering Lab<br>Released under the <a href='https://creativecommons.org/licenses/by/4.0/'>CC BY 4.0 license</a></span></div>"
+      - text: "<div id='left-footer' style='display: flex; justify-content: space-between; align-items: center;'><div><img src='/images/isn_brain_logo_square.png' alt='ISN Lab Logo' style='margin-right: 10px;'><span>© Integrated Systems Neuroengineering Lab, released under the <a href='https://creativecommons.org/licenses/by/4.0/'>CC BY 4.0 license</a></span></div><span>Built with <a href='https://quarto.org'>Quarto</a></span></div>"
+  favicon: /images/favicon_io/cri_favicon/favicon.ico
   navbar:
     search: true
-    logo: images/cri_logo.png
+    logo: /images/cri_logo.png
     left:
       - text: Home
         href: index.qmd
       - text: Tutorials
         menu:
           - text: CNN
-            href: tutorials/cnn.qmd
+            href: menu/tutorials/cnn.qmd
           - text: MNIST
-            href: tutorials/mnist.qmd
+            href: menu/tutorials/mnist.qmd
       - text: API
         menu:
           - text: Overview
-            href: api/overview.qmd
-          - text: Submitting Jobs
-            href: api/submitting-jobs.qmd
+            href: menu/api/overview.qmd
+          - text: Submitting Jobs to CRI
+            href: menu/api/submitting-jobs.qmd
     right:
       - icon: github
         href: https://github.com/shashankbansal6/HiAER-Spike.git
         aria-label: GitHub
-      - text: ISN @ UC San Diego
+      - text: "<img src='/images/isn_brain_logo_square.png' alt='ISN Lab Logo' height='25px'> ISN @ UC San Diego"
         href: https://isn.ucsd.edu/
 format:
   html:
