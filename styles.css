@@ -1,0 +1,26 @@
+/* css styles */
+#left-footer {
+    width: 100%;
+    text-align: center;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    background-color: #f8f9fa;
+    padding: 5px 0;
+  }
+  
+#left-footer img {
+    height: 65px;
+  }
+  
+#left-footer p {
+    margin: 0;
+  }
+
+  #right-footer {
+    width: 100%;
+    text-align: right;
+    position: fixed;
+    background-color: #f8f9fa;
+    padding: 5px 0;
+  }
