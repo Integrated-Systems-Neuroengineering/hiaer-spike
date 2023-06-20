@@ -102,7 +102,7 @@
     "href": "menu/api/overview.html#installation",
     "title": "Overview",
     "section": "Installation",
-    "text": "Installation\n\nSimple Installation\n$ pip install l2s\n\n\nDevelopment Installation\n\nFirst install Poetry\n\nIf Poetry installs in may be necessary to install an alternative Python distribution such as Conda\n\nThen clone this repository:\n\n$ git clone https://github.com/Integrated-Systems-Neuroengineering/L2S.git'\n\nNext you will need to clone the cri-simulations repository into the same directory you just cloned this repository into:\n\n$ git clone https://github.com/Integrated-Systems-Neuroengineering/CRI_Simulations_Public.git'\n\ncd into the L2S repo you cloned and install the needed dependencies. Resolving dependencies may take a while.\n\n$ cd L2S \n$ poetry install\n\nSome Python dependencies may require a compiler supporting C++11 to be installed on your system, such as a recent version of GCC\nfinally activate the development environment\n\n$ poetry shell"
+    "text": "Installation\n\nSimple Installation\n$ pip install hs_api\n\n\nDevelopment Installation\n\nFirst install Poetry\n\nIf Poetry doesn’t install it may be necessary to install an alternative Python distribution such as Conda\n\nThen clone this repository:\n\n$ git clone https://github.com/Integrated-Systems-Neuroengineering/hs_api.git\n\ncd into the hs_api repo you cloned and install the needed dependencies. Resolving dependencies may take a while.\n\n$ cd hs_api\n$ poetry install\n\nFinally activate the development environment\n\n$ poetry shell"
   },
   {
     "objectID": "menu/api/usage.html",
