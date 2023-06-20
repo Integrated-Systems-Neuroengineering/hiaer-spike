@@ -1,8 +1,0 @@
----
-title: "Convolutional SNN"
-format:
-  html:
-    page-layout: full
----
-
-## Using a Convolutional SNN to classify ???
