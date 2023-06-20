@@ -32,10 +32,15 @@ website:
             href: menu/api/usage.qmd
           - text: Submitting Jobs to CRI
             href: menu/api/submitting-jobs.qmd
+            #   - text: Example
+            #     href: menu/api/submitting-jobs.qmd
     right:
       - icon: github
-        href: https://github.com/shashankbansal6/HiAER-Spike.git
-        aria-label: GitHub
+        menu:
+          - text: Source Code
+            url: https://github.com/shashankbansal6/hiaer-spike.git
+          - text: Report a Bug
+            url: https://github.com/Integrated-Systems-Neuroengineering/hiaer-spike.git
       - text: "<img src='/images/favicon/isn_brain_only/favicon.ico' alt='ISN Lab Logo' height='25px'> ISN @ UC San Diego"
         href: https://isn.ucsd.edu/
 format:
