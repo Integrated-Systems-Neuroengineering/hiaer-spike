@@ -6,7 +6,7 @@ project:
 
 website:
   title: "HiAER-Spike"
-  # repo-url: https://github.com/Integrated-Systems-Neuroengineering/HiAER-Spike
+  repo-url: https://github.com/Integrated-Systems-Neuroengineering/HiAER-Spike
   repo-actions: [issue]
   page-footer:
     left:
