@@ -11,7 +11,7 @@
     "href": "collab/mnist.html",
     "title": "Feedforward Fully Connected SNN",
     "section": "",
-    "text": "This tutorial goes over how to train a simple feedforward SNN and deploy on HiAER Spike using our conversion pipline.\n\nDefine a Feedforward SNN\nTo build a simple feedforward spiking neural network with PyTorch, we can use snnTorch, SpikingJelly or other deep learning frameworks that are based on PyTorch. Currently, our conversion pipline supports snnTorch and SpikingJelly. In this tutorial, we will be using SpikingJelly."
+    "text": "This tutorial goes over how to train a simple feedforward SNN and deploy on HiAER Spike using our conversion pipline.\n\nDefine a Feedforward SNN\nTo build a simple feedforward spiking neural network with PyTorch, we can use snnTorch, SpikingJelly or other deep learning frameworks that are based on PyTorch. Currently, our conversion pipline supports snnTorch and SpikingJelly. In this tutorial, we will be using SpikingJelly.\n\n\n\nERROR: Could not find a version that satisfies the requirement hs_api (from versions: none)\nERROR: No matching distribution found for hs_api\nNote: you may need to restart the kernel to use updated packages."
   },
   {
     "objectID": "menu/tutorials/mnist.html",
@@ -88,21 +88,21 @@
     "href": "menu/api/overview.html",
     "title": "Overview",
     "section": "",
-    "text": "L2S is a Python library for interacting with the ISN CRI project hosted at SDSC. This project aims to make massive scale simulations of spiking neural networks easily accessible to the research community, and in particular researches interested in neuromorphic computing for artificial intelligence and neuroscience researchers. This library allows a user to define a spiking neural network and execute it on one of two backends: the CRI neuromorphic hardware or if the hardware is not available a python simulation of the hardware.\nCheck out the Usage section for further information, including how to install the project."
+    "text": "hs_api is a python library for interacting with the ISN CRI project hosted at SDSC. This project aims to make massive scale simulations of spiking neural networks easily accessible to the research community, and in particular researchers interested in neuromorphic computing for artificial intelligence and neuroscience. This library allows a user to define a spiking neural network and execute it on one of two backends:\n\nthe CRI neuromorphic hardware or\na python simulation of the hardware\n\nCheck out the Usage section for further information."
   },
   {
     "objectID": "menu/api/overview.html#introduction",
     "href": "menu/api/overview.html#introduction",
     "title": "Overview",
     "section": "",
-    "text": "L2S is a Python library for interacting with the ISN CRI project hosted at SDSC. This project aims to make massive scale simulations of spiking neural networks easily accessible to the research community, and in particular researches interested in neuromorphic computing for artificial intelligence and neuroscience researchers. This library allows a user to define a spiking neural network and execute it on one of two backends: the CRI neuromorphic hardware or if the hardware is not available a python simulation of the hardware.\nCheck out the Usage section for further information, including how to install the project."
+    "text": "hs_api is a python library for interacting with the ISN CRI project hosted at SDSC. This project aims to make massive scale simulations of spiking neural networks easily accessible to the research community, and in particular researchers interested in neuromorphic computing for artificial intelligence and neuroscience. This library allows a user to define a spiking neural network and execute it on one of two backends:\n\nthe CRI neuromorphic hardware or\na python simulation of the hardware\n\nCheck out the Usage section for further information."
   },
   {
     "objectID": "menu/api/overview.html#installation",
     "href": "menu/api/overview.html#installation",
     "title": "Overview",
     "section": "Installation",
-    "text": "Installation\n\nSimple Installation\n$ pip install hs_api\n\n\nDevelopment Installation\n\nFirst install Poetry\n\nIf Poetry doesn’t install it may be necessary to install an alternative Python distribution such as Conda\n\nThen clone this repository:\n\n$ git clone https://github.com/Integrated-Systems-Neuroengineering/hs_api.git\n\ncd into the hs_api repo you cloned and install the needed dependencies. Resolving dependencies may take a while.\n\n$ cd hs_api\n$ poetry install\n\nFinally activate the development environment\n\n$ poetry shell"
+    "text": "Installation\n\nSimple Installation\n$ pip install hs_api\n\n\nDevelopment Installation\n\nFirst install Poetry\n\nIf Poetry doesn’t install it may be necessary to install an alternative Python distribution such as Conda\n\nClone the following dependencies and the hs_api repo:\n\n# Dependencies\n$ git clone https://github.com/Integrated-Systems-Neuroengineering/connectome_utils.git\n$ git clone  https://github.com/Integrated-Systems-Neuroengineering/hs_bridge.git\n\n# API repo\n$ git clone https://github.com/Integrated-Systems-Neuroengineering/hs_api.git\n\ncd into the hs_api repo you cloned and install the needed dependencies. Resolving dependencies may take a while.\n\n$ cd hs_api\n$ poetry install\n\nFinally activate the development environment\n\n$ poetry shell"
   },
   {
     "objectID": "menu/api/usage.html",
