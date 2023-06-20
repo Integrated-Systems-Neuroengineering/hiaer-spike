@@ -1,1 +1,1 @@
-Sitemap: https://github.com/shashankbansal6/HiAER-Spike/sitemap.xml
+Sitemap: https://shashankbansal6.github.io/HiAER-Spike/sitemap.xml
