@@ -11,7 +11,7 @@ website:
   page-footer:
     left:
       - text: "<div id='left-footer' style='display: flex; justify-content: space-between; align-items: center;'><div><img src='/images/isn_brain_logo_square.png' alt='ISN Lab Logo' style='margin-right: 10px;'><span>© 2023 Integrated Systems Neuroengineering Lab, released under the <a href='https://creativecommons.org/licenses/by/4.0/'>CC BY 4.0 license</a></span></div><span>Built with <a href='https://quarto.org'>Quarto</a></span></div>"
-  favicon: /images/favicon_io/cri_favicon/favicon.ico
+  favicon: /images/favicon/cri_favicon/favicon.ico
   navbar:
     search: true
     logo: /images/cri_logo.png
