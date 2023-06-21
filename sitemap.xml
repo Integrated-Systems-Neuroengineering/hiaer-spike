@@ -2,30 +2,26 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://github.com/Integrated-Systems-Neuroengineering/hiaer-spike/index.html</loc>
-    <lastmod>2023-06-21T02:03:49.463Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/Integrated-Systems-Neuroengineering/hiaer-spike/collab/mnist.html</loc>
-    <lastmod>2023-06-21T02:03:50.227Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/Integrated-Systems-Neuroengineering/hiaer-spike/menu/tutorials/mnist.html</loc>
-    <lastmod>2023-06-21T02:03:50.691Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/Integrated-Systems-Neuroengineering/hiaer-spike/menu/tutorials/cnn.html</loc>
-    <lastmod>2023-06-21T02:03:51.027Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/Integrated-Systems-Neuroengineering/hiaer-spike/menu/api/submitting-jobs.html</loc>
-    <lastmod>2023-06-21T02:03:51.623Z</lastmod>
+    <lastmod>2023-06-21T02:16:54.407Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/Integrated-Systems-Neuroengineering/hiaer-spike/menu/api/overview.html</loc>
-    <lastmod>2023-06-21T02:03:52.019Z</lastmod>
+    <lastmod>2023-06-21T02:16:55.227Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/Integrated-Systems-Neuroengineering/hiaer-spike/menu/api/submitting-jobs.html</loc>
+    <lastmod>2023-06-21T02:16:55.855Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/Integrated-Systems-Neuroengineering/hiaer-spike/menu/api/usage.html</loc>
-    <lastmod>2023-06-21T02:03:52.507Z</lastmod>
+    <lastmod>2023-06-21T02:16:56.371Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/Integrated-Systems-Neuroengineering/hiaer-spike/menu/tutorials/cnn.html</loc>
+    <lastmod>2023-06-21T02:16:56.707Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/Integrated-Systems-Neuroengineering/hiaer-spike/menu/tutorials/mnist.html</loc>
+    <lastmod>2023-06-21T02:16:57.159Z</lastmod>
   </url>
 </urlset>
