@@ -24,9 +24,9 @@ website:
       - text: Tutorials
         menu:
           - text: CNN
-            href: menu/tutorials/cnn.qmd
+            href: menu/tutorials/cnn.ipynb
           - text: MNIST
-            href: menu/tutorials/mnist.qmd
+            href: menu/tutorials/mnist.ipynb
       - text: API
         menu:
           - text: Overview
