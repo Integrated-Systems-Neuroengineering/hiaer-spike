@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>MNIST Tutorial</title>
+<title>HiAER-Spike – mnist</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -57,42 +57,163 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="mnist_files/libs/clipboard/clipboard.min.js"></script>
-<script src="mnist_files/libs/quarto-html/quarto.js"></script>
-<script src="mnist_files/libs/quarto-html/popper.min.js"></script>
-<script src="mnist_files/libs/quarto-html/tippy.umd.min.js"></script>
-<script src="mnist_files/libs/quarto-html/anchor.min.js"></script>
-<link href="mnist_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="mnist_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="mnist_files/libs/bootstrap/bootstrap.min.js"></script>
-<link href="mnist_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="mnist_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../..//images/favicon/cri_favicon/favicon.ico" rel="icon">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
 
 
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
-<body>
+<body class="nav-fixed">
 
-<div id="quarto-content" class="page-columns page-rows-contents page-layout-full">
-
-<main class="content column-page" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">MNIST Tutorial</h1>
-</div>
-
-
-
-<div class="quarto-title-meta">
-
-    
-  
-    
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../../images/cri_logo.png" alt="" class="navbar-logo">
+    </a>
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">HiAER-Spike</span>
+    </a>
   </div>
-  
-
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html" rel="" target="">
+ <span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-tutorials" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text">Tutorials</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-tutorials">    
+        <li>
+    <a class="dropdown-item" href="../../menu/tutorials/cnn.html" rel="" target="">
+ <span class="dropdown-text">CNN</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../menu/tutorials/mnist.html" rel="" target="">
+ <span class="dropdown-text">MNIST</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-api" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text">API</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-api">    
+        <li>
+    <a class="dropdown-item" href="../../menu/api/overview.html" rel="" target="">
+ <span class="dropdown-text">Overview</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../menu/api/usage.html" rel="" target="">
+ <span class="dropdown-text">Usage</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../menu/api/submitting-jobs.html" rel="" target="">
+ <span class="dropdown-text">Submitting Jobs to CRI</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-bi-github" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+      <i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-bi-github">    
+        <li>
+    <a class="dropdown-item" href="https://github.com/shashankbansal6/hiaer-spike.git" rel="" target="">
+ <span class="dropdown-text">Source Code</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://github.com/Integrated-Systems-Neuroengineering/hiaer-spike.git" rel="" target="">
+ <span class="dropdown-text">Report a Bug</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="https://isn.ucsd.edu/" rel="" target="">
+ <span class="menu-text"><img src="../../images/favicon/isn_brain_only/favicon.ico" alt="ISN Lab Logo" height="25px"> ISN @ UC San Diego</span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools">
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
 </header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#mnist" id="toc-mnist" class="nav-link active" data-scroll-target="#mnist">MNIST</a>
+  <ul class="collapse">
+  <li><a href="#feedforward-fully-connected-snn" id="toc-feedforward-fully-connected-snn" class="nav-link" data-scroll-target="#feedforward-fully-connected-snn"><strong>Feedforward Fully Connected SNN</strong></a></li>
+  <li><a href="#define-a-feedforward-snn" id="toc-define-a-feedforward-snn" class="nav-link" data-scroll-target="#define-a-feedforward-snn"><strong>Define a Feedforward SNN</strong></a></li>
+  <li><a href="#model-architecture" id="toc-model-architecture" class="nav-link" data-scroll-target="#model-architecture"><strong>Model Architecture</strong></a></li>
+  <li><a href="#setting-up-the-mnist-dataset" id="toc-setting-up-the-mnist-dataset" class="nav-link" data-scroll-target="#setting-up-the-mnist-dataset"><strong>Setting up the MNIST Dataset</strong></a></li>
+  <li><a href="#training-the-csnn" id="toc-training-the-csnn" class="nav-link" data-scroll-target="#training-the-csnn"><strong>Training the CSNN</strong></a></li>
+  <li><a href="#converting-the-trained-snn-to-hiaer-spike-format" id="toc-converting-the-trained-snn-to-hiaer-spike-format" class="nav-link" data-scroll-target="#converting-the-trained-snn-to-hiaer-spike-format"><strong>Converting the trained SNN to HiAER Spike Format</strong></a></li>
+  <li><a href="#initiate-the-hiaer-spike-snn" id="toc-initiate-the-hiaer-spike-snn" class="nav-link" data-scroll-target="#initiate-the-hiaer-spike-snn"><strong>Initiate the HiAER Spike SNN</strong></a></li>
+  <li><a href="#deploying-the-snn-on-hiaer-spike" id="toc-deploying-the-snn-on-hiaer-spike" class="nav-link" data-scroll-target="#deploying-the-snn-on-hiaer-spike"><strong>Deploying the SNN on HiAER Spike</strong></a></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/Integrated-Systems-Neuroengineering/hiaer-spike.git/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
 
 <section id="mnist" class="level1">
 <h1>MNIST</h1>
@@ -104,372 +225,264 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 class="anchored" data-anchor-id="define-a-feedforward-snn"><strong>Define a Feedforward SNN</strong></h3>
 <p>To build a simple feedforward spiking neural network with PyTorch, we can use snnTorch, SpikingJelly or other deep learning frameworks that are based on PyTorch. Currently, our conversion pipline supports snnTorch and SpikingJelly. In this tutorial, we will be using SpikingJelly.</p>
 <p>Install the PyPi distribution of SpikingJelly</p>
-<div class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>pip install spikingjelly</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Requirement already satisfied: spikingjelly in /Volumes/export/isn/keli/miniconda3/lib/python3.9/site-packages (0.0.0.0.14)
-Requirement already satisfied: torch in /Volumes/export/isn/keli/miniconda3/lib/python3.9/site-packages (from spikingjelly) (1.12.1)
-Requirement already satisfied: matplotlib in /Volumes/export/isn/keli/miniconda3/lib/python3.9/site-packages (from spikingjelly) (3.4.3)
-Requirement already satisfied: numpy in /Volumes/export/isn/keli/miniconda3/lib/python3.9/site-packages (from spikingjelly) (1.22.4)
-Requirement already satisfied: tqdm in /Volumes/export/isn/keli/miniconda3/lib/python3.9/site-packages (from spikingjelly) (4.63.0)
-Requirement already satisfied: torchvision in /Volumes/export/isn/keli/miniconda3/lib/python3.9/site-packages (from spikingjelly) (0.13.1)
-Requirement already satisfied: scipy in /Volumes/export/isn/keli/miniconda3/lib/python3.9/site-packages (from spikingjelly) (1.8.1)
-Requirement already satisfied: cycler&gt;=0.10 in /Volumes/export/isn/keli/miniconda3/lib/python3.9/site-packages (from matplotlib-&gt;spikingjelly) (0.11.0)
-Requirement already satisfied: kiwisolver&gt;=1.0.1 in /Volumes/export/isn/keli/miniconda3/lib/python3.9/site-packages (from matplotlib-&gt;spikingjelly) (1.4.2)
-Requirement already satisfied: pillow&gt;=6.2.0 in /Volumes/export/isn/keli/miniconda3/lib/python3.9/site-packages (from matplotlib-&gt;spikingjelly) (9.1.1)
-Requirement already satisfied: pyparsing&gt;=2.2.1 in /Volumes/export/isn/keli/miniconda3/lib/python3.9/site-packages (from matplotlib-&gt;spikingjelly) (2.4.7)
-Requirement already satisfied: python-dateutil&gt;=2.7 in /Volumes/export/isn/keli/miniconda3/lib/python3.9/site-packages (from matplotlib-&gt;spikingjelly) (2.8.2)
-Requirement already satisfied: typing_extensions in /Volumes/export/isn/keli/miniconda3/lib/python3.9/site-packages (from torch-&gt;spikingjelly) (4.3.0)
-Requirement already satisfied: requests in /Volumes/export/isn/keli/miniconda3/lib/python3.9/site-packages (from torchvision-&gt;spikingjelly) (2.27.1)
-Requirement already satisfied: six&gt;=1.5 in /Volumes/export/isn/keli/miniconda3/lib/python3.9/site-packages (from python-dateutil&gt;=2.7-&gt;matplotlib-&gt;spikingjelly) (1.16.0)
-Requirement already satisfied: urllib3&lt;1.27,&gt;=1.21.1 in /Volumes/export/isn/keli/miniconda3/lib/python3.9/site-packages (from requests-&gt;torchvision-&gt;spikingjelly) (1.26.8)
-Requirement already satisfied: certifi&gt;=2017.4.17 in /Volumes/export/isn/keli/miniconda3/lib/python3.9/site-packages (from requests-&gt;torchvision-&gt;spikingjelly) (2022.12.7)
-Requirement already satisfied: charset-normalizer~=2.0.0 in /Volumes/export/isn/keli/miniconda3/lib/python3.9/site-packages (from requests-&gt;torchvision-&gt;spikingjelly) (2.0.4)
-Requirement already satisfied: idna&lt;4,&gt;=2.5 in /Volumes/export/isn/keli/miniconda3/lib/python3.9/site-packages (from requests-&gt;torchvision-&gt;spikingjelly) (3.3)
-
-[notice] A new release of pip is available: 23.0.1 -&gt; 23.1.2
-[notice] To update, run: pip install --upgrade pip
-Note: you may need to restart the kernel to use updated packages.</code></pre>
-</div>
-</div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> pip install spikingjelly</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Import necessary libraries from SpikingJelly and PyTorch</p>
-<div class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> spikingjelly.activation_based <span class="im">import</span> neuron, functional, surrogate</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch </span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch.nn <span class="im">as</span> nn</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> spikingjelly.activation_based <span class="im">import</span> neuron, functional, surrogate, layer</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch </span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch.nn <span class="im">as</span> nn</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="model-architecture" class="level3">
 <h3 class="anchored" data-anchor-id="model-architecture"><strong>Model Architecture</strong></h3>
-<p>Using SpikingJelly, we can define a simple 2-layer feedforward SNN model with 1000 hidden neurons. The PyTorch layer will act as synapses between the spiking neuron layers. #### <strong>Surrogate Function</strong> SpikingJelly and snnTorch both use backpropagation through time to train the spiking neural networks. However, because of the non-differentiability of spikes, surrogate gradients are used in place of the Heaviside function in the backward pass</p>
-<div class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> model(nn.Module): </span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, features <span class="op">=</span> <span class="dv">1000</span>): </span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>        <span class="bu">super</span>().<span class="fu">__init__</span>() </span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.flat <span class="op">=</span> nn.Flatten()</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.linear1 <span class="op">=</span> nn.Linear(<span class="dv">28</span> <span class="op">*</span> <span class="dv">28</span>, features, bias<span class="op">=</span><span class="va">False</span>) </span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.lif1 <span class="op">=</span> neuron.LIFNode(surrogate_function<span class="op">=</span>surrogate.ATan()) </span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.linear2 <span class="op">=</span> nn.Linear(features, <span class="dv">10</span>, bias<span class="op">=</span><span class="va">False</span>) </span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.lif2 <span class="op">=</span> neuron.LIFNode(surrogate_function<span class="op">=</span>surrogate.ATan()) </span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> forward(<span class="va">self</span>, x): </span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>        x <span class="op">=</span> <span class="va">self</span>.flat(x)</span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>        x <span class="op">=</span> <span class="va">self</span>.linear1(x) </span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>        x <span class="op">=</span> <span class="va">self</span>.lif1(x) </span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>        x <span class="op">=</span> <span class="va">self</span>.linear2(x) </span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>        x <span class="op">=</span> <span class="va">self</span>.lif2(x) </span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Initiate the Network</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>net <span class="op">=</span> model()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
+<p>Using SpikingJelly, we can define a simple 2-layer feedforward SNN model with 1000 hidden neurons. The PyTorch layer will act as synapses between the spiking neuron layers. #### <strong>Surrogate Function</strong> SpikingJelly and snnTorch both use backpropagation through time to train the spiking neural networks. However, because of the non-differentiability of spikes, surrogate gradients are used in place of the Heaviside function in the backward pass.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> model(nn.Module): </span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, features <span class="op">=</span> <span class="dv">1000</span>): </span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>        <span class="bu">super</span>().<span class="fu">__init__</span>() </span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.flat <span class="op">=</span> nn.Flatten()</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.linear1 <span class="op">=</span> nn.Linear(<span class="dv">28</span> <span class="op">*</span> <span class="dv">28</span>, features, bias<span class="op">=</span><span class="va">False</span>) </span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.lif1 <span class="op">=</span> neuron.LIFNode(surrogate_function<span class="op">=</span>surrogate.ATan()) </span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.linear2 <span class="op">=</span> nn.Linear(features, <span class="dv">10</span>, bias<span class="op">=</span><span class="va">False</span>) </span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.lif2 <span class="op">=</span> neuron.LIFNode(surrogate_function<span class="op">=</span>surrogate.ATan()) </span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> forward(<span class="va">self</span>, x): </span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>        x <span class="op">=</span> <span class="va">self</span>.flat(x)</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>        x <span class="op">=</span> <span class="va">self</span>.linear1(x) </span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>        x <span class="op">=</span> <span class="va">self</span>.lif1(x) </span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>        x <span class="op">=</span> <span class="va">self</span>.linear2(x) </span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>        x <span class="op">=</span> <span class="va">self</span>.lif2(x) </span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Initiate the Network</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>net <span class="op">=</span> model()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="setting-up-the-mnist-dataset" class="level3">
 <h3 class="anchored" data-anchor-id="setting-up-the-mnist-dataset"><strong>Setting up the MNIST Dataset</strong></h3>
-<div class="cell" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> torchvision <span class="im">import</span> datasets, transforms</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> torch.utils.data <span class="im">import</span> DataLoader</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co">#Download MNIST data from torch </span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>mnist_train <span class="op">=</span> datasets.MNIST(<span class="st">'data/mnist'</span>, train<span class="op">=</span><span class="va">True</span>, download<span class="op">=</span><span class="va">True</span>, transform<span class="op">=</span>transforms.Compose(</span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    [transforms.ToTensor()]))</span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>mnist_test <span class="op">=</span> datasets.MNIST(<span class="st">'data/mnist'</span>, train<span class="op">=</span><span class="va">False</span>, download<span class="op">=</span><span class="va">True</span>, transform<span class="op">=</span>transforms.Compose(</span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    [transforms.ToTensor()]))</span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Create DataLoaders</span></span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>train_loader <span class="op">=</span> DataLoader(mnist_train, batch_size<span class="op">=</span><span class="dv">128</span>, shuffle<span class="op">=</span><span class="va">True</span>, drop_last<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>test_loader <span class="op">=</span> DataLoader(mnist_test, batch_size<span class="op">=</span><span class="dv">128</span>, shuffle<span class="op">=</span><span class="va">True</span>, drop_last<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> torchvision <span class="im">import</span> datasets, transforms</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> torch.utils.data <span class="im">import</span> DataLoader</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co">#Download MNIST data from torch </span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>mnist_train <span class="op">=</span> datasets.MNIST(<span class="st">'data/mnist'</span>, train<span class="op">=</span><span class="va">True</span>, download<span class="op">=</span><span class="va">True</span>, transform<span class="op">=</span>transforms.Compose(</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    [transforms.ToTensor()]))</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>mnist_test <span class="op">=</span> datasets.MNIST(<span class="st">'data/mnist'</span>, train<span class="op">=</span><span class="va">False</span>, download<span class="op">=</span><span class="va">True</span>, transform<span class="op">=</span>transforms.Compose(</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    [transforms.ToTensor()]))</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Create DataLoaders</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>train_loader <span class="op">=</span> DataLoader(mnist_train, batch_size<span class="op">=</span><span class="dv">128</span>, shuffle<span class="op">=</span><span class="va">True</span>, drop_last<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>test_loader <span class="op">=</span> DataLoader(mnist_test, batch_size<span class="op">=</span><span class="dv">128</span>, shuffle<span class="op">=</span><span class="va">True</span>, drop_last<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="training-the-snn" class="level3">
-<h3 class="anchored" data-anchor-id="training-the-snn"><strong>Training the SNN</strong></h3>
+<section id="training-the-csnn" class="level3">
+<h3 class="anchored" data-anchor-id="training-the-csnn"><strong>Training the CSNN</strong></h3>
 <p>Since we are using a static image dataset, we will first encode the image into spikes using the rate encoding function from spikingjelly. With rate encoding, the input feature determines the firing frequency and the neuron that fries the most is selected as the predicted class.</p>
-<div class="cell" data-execution_count="6">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> spikingjelly.activation_based <span class="im">import</span> encoding</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> time</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell" data-execution_count="7">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Setting up the encoder and the time steps</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>encoder <span class="op">=</span> encoding.PoissonEncoder()</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>num_steps <span class="op">=</span> <span class="dv">20</span></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="co">#Define training parameters</span></span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>epochs <span class="op">=</span> <span class="dv">20</span></span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>device <span class="op">=</span> torch.device(<span class="st">"cuda"</span>) <span class="cf">if</span> torch.cuda.is_available() <span class="cf">else</span> torch.device(<span class="st">"cpu"</span>)</span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="co">#Copy netowrk to device </span></span>
-<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>net.to(device)</span>
-<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a><span class="co">#Define optimizer, scheduler and the loss function</span></span>
-<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>optimizer <span class="op">=</span> torch.optim.Adam(net.parameters(), lr<span class="op">=</span><span class="fl">1e-3</span>)</span>
-<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a><span class="co"># lr_scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(optimizer, epochs)</span></span>
-<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>loss_fun <span class="op">=</span> torch.nn.MSELoss()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell" data-execution_count="8">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> epoch <span class="kw">in</span> <span class="bu">range</span>(epochs):</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    start_time <span class="op">=</span> time.time()</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    net.train()</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    train_loss <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    train_acc <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>    train_samples <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> img, label <span class="kw">in</span> train_loader:</span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>        optimizer.zero_grad()</span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>        img <span class="op">=</span> img.to(device)</span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>        label <span class="op">=</span> label.to(device)</span>
-<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>        label_onehot <span class="op">=</span> torch.nn.functional.one_hot(label, <span class="dv">10</span>).<span class="bu">float</span>()</span>
-<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>        out_fr <span class="op">=</span> <span class="fl">0.</span></span>
-<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> t <span class="kw">in</span> <span class="bu">range</span>(num_steps):</span>
-<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>            encoded_img <span class="op">=</span> encoder(img)</span>
-<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>            out_fr <span class="op">+=</span> net(encoded_img)</span>
-<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>        out_fr <span class="op">=</span> out_fr<span class="op">/</span>num_steps  </span>
-<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>        loss <span class="op">=</span> loss_fun(out_fr, label_onehot)</span>
-<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>        loss.backward()</span>
-<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>        optimizer.step()</span>
-<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a>        train_samples <span class="op">+=</span> label.numel()</span>
-<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a>        train_loss <span class="op">+=</span> loss.item() <span class="op">*</span> label.numel()</span>
-<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a>        train_acc <span class="op">+=</span> (out_fr.argmax(<span class="dv">1</span>) <span class="op">==</span> label).<span class="bu">float</span>().<span class="bu">sum</span>().item()</span>
-<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a>        <span class="co">#reset the membrane protential after each input image</span></span>
-<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a>        functional.reset_net(net)</span>
-<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a>    train_time <span class="op">=</span> time.time()</span>
-<span id="cb9-29"><a href="#cb9-29" aria-hidden="true" tabindex="-1"></a>    train_speed <span class="op">=</span> train_samples <span class="op">/</span> (train_time <span class="op">-</span> start_time)</span>
-<span id="cb9-30"><a href="#cb9-30" aria-hidden="true" tabindex="-1"></a>    train_loss <span class="op">/=</span> train_samples</span>
-<span id="cb9-31"><a href="#cb9-31" aria-hidden="true" tabindex="-1"></a>    train_acc <span class="op">/=</span> train_samples</span>
-<span id="cb9-32"><a href="#cb9-32" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb9-33"><a href="#cb9-33" aria-hidden="true" tabindex="-1"></a>    <span class="co"># lr_scheduler.step()</span></span>
-<span id="cb9-34"><a href="#cb9-34" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb9-35"><a href="#cb9-35" aria-hidden="true" tabindex="-1"></a>    net.<span class="bu">eval</span>()</span>
-<span id="cb9-36"><a href="#cb9-36" aria-hidden="true" tabindex="-1"></a>    test_loss <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb9-37"><a href="#cb9-37" aria-hidden="true" tabindex="-1"></a>    test_acc <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb9-38"><a href="#cb9-38" aria-hidden="true" tabindex="-1"></a>    test_samples <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb9-39"><a href="#cb9-39" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-40"><a href="#cb9-40" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> torch.no_grad():</span>
-<span id="cb9-41"><a href="#cb9-41" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> img, label <span class="kw">in</span> test_loader:</span>
-<span id="cb9-42"><a href="#cb9-42" aria-hidden="true" tabindex="-1"></a>            img <span class="op">=</span> img.to(device)</span>
-<span id="cb9-43"><a href="#cb9-43" aria-hidden="true" tabindex="-1"></a>            label <span class="op">=</span> label.to(device)</span>
-<span id="cb9-44"><a href="#cb9-44" aria-hidden="true" tabindex="-1"></a>            label_onehot <span class="op">=</span> torch.nn.functional.one_hot(label, <span class="dv">10</span>).<span class="bu">float</span>()</span>
-<span id="cb9-45"><a href="#cb9-45" aria-hidden="true" tabindex="-1"></a>            out_fr <span class="op">=</span> <span class="fl">0.</span>   </span>
-<span id="cb9-46"><a href="#cb9-46" aria-hidden="true" tabindex="-1"></a>            <span class="cf">for</span> t <span class="kw">in</span> <span class="bu">range</span>(num_steps):</span>
-<span id="cb9-47"><a href="#cb9-47" aria-hidden="true" tabindex="-1"></a>                encoded_img <span class="op">=</span> encoder(img)</span>
-<span id="cb9-48"><a href="#cb9-48" aria-hidden="true" tabindex="-1"></a>                out_fr <span class="op">+=</span> net(encoded_img)</span>
-<span id="cb9-49"><a href="#cb9-49" aria-hidden="true" tabindex="-1"></a>            out_fr <span class="op">=</span> out_fr<span class="op">/</span>num_steps  </span>
-<span id="cb9-50"><a href="#cb9-50" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-51"><a href="#cb9-51" aria-hidden="true" tabindex="-1"></a>            loss <span class="op">=</span> loss_fun(out_fr, label_onehot)</span>
-<span id="cb9-52"><a href="#cb9-52" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-53"><a href="#cb9-53" aria-hidden="true" tabindex="-1"></a>            test_samples <span class="op">+=</span> label.numel()</span>
-<span id="cb9-54"><a href="#cb9-54" aria-hidden="true" tabindex="-1"></a>            test_loss <span class="op">+=</span> loss.item() <span class="op">*</span> label.numel()</span>
-<span id="cb9-55"><a href="#cb9-55" aria-hidden="true" tabindex="-1"></a>            test_acc <span class="op">+=</span> (out_fr.argmax(<span class="dv">1</span>) <span class="op">==</span> label).<span class="bu">float</span>().<span class="bu">sum</span>().item()</span>
-<span id="cb9-56"><a href="#cb9-56" aria-hidden="true" tabindex="-1"></a>            functional.reset_net(net)</span>
-<span id="cb9-57"><a href="#cb9-57" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-58"><a href="#cb9-58" aria-hidden="true" tabindex="-1"></a>    test_time <span class="op">=</span> time.time()</span>
-<span id="cb9-59"><a href="#cb9-59" aria-hidden="true" tabindex="-1"></a>    test_speed <span class="op">=</span> test_samples <span class="op">/</span> (test_time <span class="op">-</span> train_time)</span>
-<span id="cb9-60"><a href="#cb9-60" aria-hidden="true" tabindex="-1"></a>    test_loss <span class="op">/=</span> test_samples</span>
-<span id="cb9-61"><a href="#cb9-61" aria-hidden="true" tabindex="-1"></a>    test_acc <span class="op">/=</span> test_samples</span>
-<span id="cb9-62"><a href="#cb9-62" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-63"><a href="#cb9-63" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f'epoch = </span><span class="sc">{</span>epoch<span class="sc">}</span><span class="ss">, train_loss =</span><span class="sc">{</span>train_loss<span class="sc">: .4f}</span><span class="ss">, train_acc =</span><span class="sc">{</span>train_acc<span class="sc">: .4f}</span><span class="ss">, test_loss =</span><span class="sc">{</span>test_loss<span class="sc">: .4f}</span><span class="ss">, test_acc =</span><span class="sc">{</span>test_acc<span class="sc">: .4f}</span><span class="ss">'</span>)</span>
-<span id="cb9-64"><a href="#cb9-64" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f'train speed =</span><span class="sc">{</span>train_speed<span class="sc">: .4f}</span><span class="ss"> images/s, test speed =</span><span class="sc">{</span>test_speed<span class="sc">: .4f}</span><span class="ss"> images/s'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>epoch = 0, train_loss = 0.0188, train_acc = 0.8899, test_loss = 0.0082, test_acc = 0.9558
-train speed = 4051.3646 images/s, test speed = 6689.1926 images/s
-epoch = 1, train_loss = 0.0065, train_acc = 0.9668, test_loss = 0.0057, test_acc = 0.9707
-train speed = 4502.3399 images/s, test speed = 10131.3872 images/s
-epoch = 2, train_loss = 0.0044, train_acc = 0.9779, test_loss = 0.0046, test_acc = 0.9765
-train speed = 4497.2928 images/s, test speed = 9969.6456 images/s
-epoch = 3, train_loss = 0.0034, train_acc = 0.9841, test_loss = 0.0040, test_acc = 0.9791
-train speed = 4501.9602 images/s, test speed = 10136.5373 images/s
-epoch = 4, train_loss = 0.0027, train_acc = 0.9880, test_loss = 0.0035, test_acc = 0.9811
-train speed = 4473.6464 images/s, test speed = 10003.3661 images/s
-epoch = 5, train_loss = 0.0022, train_acc = 0.9909, test_loss = 0.0033, test_acc = 0.9831
-train speed = 4538.8954 images/s, test speed = 10411.7390 images/s
-epoch = 6, train_loss = 0.0018, train_acc = 0.9930, test_loss = 0.0033, test_acc = 0.9822
-train speed = 4602.6228 images/s, test speed = 11052.5053 images/s
-epoch = 7, train_loss = 0.0015, train_acc = 0.9948, test_loss = 0.0032, test_acc = 0.9833
-train speed = 4477.6290 images/s, test speed = 10118.0900 images/s
-epoch = 8, train_loss = 0.0013, train_acc = 0.9961, test_loss = 0.0030, test_acc = 0.9846
-train speed = 4499.3006 images/s, test speed = 10151.5785 images/s
-epoch = 9, train_loss = 0.0011, train_acc = 0.9966, test_loss = 0.0032, test_acc = 0.9839
-train speed = 4472.8697 images/s, test speed = 10166.8593 images/s
-epoch = 10, train_loss = 0.0009, train_acc = 0.9976, test_loss = 0.0029, test_acc = 0.9841
-train speed = 4498.0421 images/s, test speed = 9962.0585 images/s
-epoch = 11, train_loss = 0.0007, train_acc = 0.9982, test_loss = 0.0027, test_acc = 0.9853
-train speed = 4516.1326 images/s, test speed = 9973.3758 images/s
-epoch = 12, train_loss = 0.0006, train_acc = 0.9986, test_loss = 0.0028, test_acc = 0.9840
-train speed = 4458.5721 images/s, test speed = 10007.9276 images/s
-epoch = 13, train_loss = 0.0006, train_acc = 0.9988, test_loss = 0.0028, test_acc = 0.9844
-train speed = 4533.3190 images/s, test speed = 10187.7078 images/s
-epoch = 14, train_loss = 0.0005, train_acc = 0.9990, test_loss = 0.0027, test_acc = 0.9838
-train speed = 4523.5437 images/s, test speed = 9711.6715 images/s
-epoch = 15, train_loss = 0.0004, train_acc = 0.9991, test_loss = 0.0028, test_acc = 0.9846
-train speed = 4456.8744 images/s, test speed = 10176.8190 images/s
-epoch = 16, train_loss = 0.0004, train_acc = 0.9992, test_loss = 0.0027, test_acc = 0.9852
-train speed = 4695.8999 images/s, test speed = 9990.2977 images/s
-epoch = 17, train_loss = 0.0003, train_acc = 0.9993, test_loss = 0.0027, test_acc = 0.9858
-train speed = 4524.9890 images/s, test speed = 10020.5386 images/s
-epoch = 18, train_loss = 0.0003, train_acc = 0.9995, test_loss = 0.0026, test_acc = 0.9854
-train speed = 4551.8444 images/s, test speed = 9910.9680 images/s
-epoch = 19, train_loss = 0.0003, train_acc = 0.9995, test_loss = 0.0027, test_acc = 0.9851
-train speed = 4524.7967 images/s, test speed = 10098.8693 images/s</code></pre>
-</div>
-</div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> spikingjelly.activation_based <span class="im">import</span> encoding</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> time</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> tqdm <span class="im">import</span> tqdm</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Setting up the encoder and the time steps</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>encoder <span class="op">=</span> encoding.PoissonEncoder()</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>num_steps <span class="op">=</span> <span class="dv">20</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="co">#Define training parameters</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>epochs <span class="op">=</span> <span class="dv">20</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>device <span class="op">=</span> torch.device(<span class="st">"cuda"</span>) <span class="cf">if</span> torch.cuda.is_available() <span class="cf">else</span> torch.device(<span class="st">"cpu"</span>)</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="co">#Copy netowrk to device </span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>net.to(device)</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="co">#Define optimizer, scheduler and the loss function</span></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>optimizer <span class="op">=</span> torch.optim.Adam(net.parameters(), lr<span class="op">=</span><span class="fl">1e-3</span>)</span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>lr_scheduler <span class="op">=</span> torch.optim.lr_scheduler.CosineAnnealingLR(optimizer, epochs)</span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>loss_fun <span class="op">=</span> torch.nn.MSELoss()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> epoch <span class="kw">in</span> <span class="bu">range</span>(epochs):</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    start_time <span class="op">=</span> time.time()</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    net.train()</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    train_loss <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    train_acc <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    train_samples <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> img, label <span class="kw">in</span> train_loader:</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>        optimizer.zero_grad()</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>        img <span class="op">=</span> img.to(device)</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>        label <span class="op">=</span> label.to(device)</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>        label_onehot <span class="op">=</span> torch.nn.functional.one_hot(label, <span class="dv">10</span>).<span class="bu">float</span>()</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>        out_fr <span class="op">=</span> <span class="fl">0.</span></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> t <span class="kw">in</span> <span class="bu">range</span>(num_steps):</span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>            encoded_img <span class="op">=</span> encoder(img)</span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>            out_fr <span class="op">+=</span> net(encoded_img)</span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>        out_fr <span class="op">=</span> out_fr<span class="op">/</span>num_steps  </span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>        loss <span class="op">=</span> loss_fun(out_fr, label_onehot)</span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>        loss.backward()</span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>        optimizer.step()</span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a>        train_samples <span class="op">+=</span> label.numel()</span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a>        train_loss <span class="op">+=</span> loss.item() <span class="op">*</span> label.numel()</span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a>        train_acc <span class="op">+=</span> (out_fr.argmax(<span class="dv">1</span>) <span class="op">==</span> label).<span class="bu">float</span>().<span class="bu">sum</span>().item()</span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a>        <span class="co">#reset the membrane protential after each input image</span></span>
+<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a>        functional.reset_net(net)</span>
+<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a>    train_time <span class="op">=</span> time.time()</span>
+<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a>    train_speed <span class="op">=</span> train_samples <span class="op">/</span> (train_time <span class="op">-</span> start_time)</span>
+<span id="cb8-30"><a href="#cb8-30" aria-hidden="true" tabindex="-1"></a>    train_loss <span class="op">/=</span> train_samples</span>
+<span id="cb8-31"><a href="#cb8-31" aria-hidden="true" tabindex="-1"></a>    train_acc <span class="op">/=</span> train_samples</span>
+<span id="cb8-32"><a href="#cb8-32" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb8-33"><a href="#cb8-33" aria-hidden="true" tabindex="-1"></a>    lr_scheduler.step()</span>
+<span id="cb8-34"><a href="#cb8-34" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb8-35"><a href="#cb8-35" aria-hidden="true" tabindex="-1"></a>    net.<span class="bu">eval</span>()</span>
+<span id="cb8-36"><a href="#cb8-36" aria-hidden="true" tabindex="-1"></a>    test_loss <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb8-37"><a href="#cb8-37" aria-hidden="true" tabindex="-1"></a>    test_acc <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb8-38"><a href="#cb8-38" aria-hidden="true" tabindex="-1"></a>    test_samples <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb8-39"><a href="#cb8-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-40"><a href="#cb8-40" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> torch.no_grad():</span>
+<span id="cb8-41"><a href="#cb8-41" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> img, label <span class="kw">in</span> test_loader:</span>
+<span id="cb8-42"><a href="#cb8-42" aria-hidden="true" tabindex="-1"></a>            img <span class="op">=</span> img.to(device)</span>
+<span id="cb8-43"><a href="#cb8-43" aria-hidden="true" tabindex="-1"></a>            label <span class="op">=</span> label.to(device)</span>
+<span id="cb8-44"><a href="#cb8-44" aria-hidden="true" tabindex="-1"></a>            label_onehot <span class="op">=</span> torch.nn.functional.one_hot(label, <span class="dv">10</span>).<span class="bu">float</span>()</span>
+<span id="cb8-45"><a href="#cb8-45" aria-hidden="true" tabindex="-1"></a>            out_fr <span class="op">=</span> <span class="fl">0.</span>   </span>
+<span id="cb8-46"><a href="#cb8-46" aria-hidden="true" tabindex="-1"></a>            <span class="cf">for</span> t <span class="kw">in</span> <span class="bu">range</span>(num_steps):</span>
+<span id="cb8-47"><a href="#cb8-47" aria-hidden="true" tabindex="-1"></a>                encoded_img <span class="op">=</span> encoder(img)</span>
+<span id="cb8-48"><a href="#cb8-48" aria-hidden="true" tabindex="-1"></a>                out_fr <span class="op">+=</span> net(encoded_img)</span>
+<span id="cb8-49"><a href="#cb8-49" aria-hidden="true" tabindex="-1"></a>            out_fr <span class="op">=</span> out_fr<span class="op">/</span>num_steps  </span>
+<span id="cb8-50"><a href="#cb8-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-51"><a href="#cb8-51" aria-hidden="true" tabindex="-1"></a>            loss <span class="op">=</span> loss_fun(out_fr, label_onehot)</span>
+<span id="cb8-52"><a href="#cb8-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-53"><a href="#cb8-53" aria-hidden="true" tabindex="-1"></a>            test_samples <span class="op">+=</span> label.numel()</span>
+<span id="cb8-54"><a href="#cb8-54" aria-hidden="true" tabindex="-1"></a>            test_loss <span class="op">+=</span> loss.item() <span class="op">*</span> label.numel()</span>
+<span id="cb8-55"><a href="#cb8-55" aria-hidden="true" tabindex="-1"></a>            test_acc <span class="op">+=</span> (out_fr.argmax(<span class="dv">1</span>) <span class="op">==</span> label).<span class="bu">float</span>().<span class="bu">sum</span>().item()</span>
+<span id="cb8-56"><a href="#cb8-56" aria-hidden="true" tabindex="-1"></a>            functional.reset_net(net)</span>
+<span id="cb8-57"><a href="#cb8-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-58"><a href="#cb8-58" aria-hidden="true" tabindex="-1"></a>    test_time <span class="op">=</span> time.time()</span>
+<span id="cb8-59"><a href="#cb8-59" aria-hidden="true" tabindex="-1"></a>    test_speed <span class="op">=</span> test_samples <span class="op">/</span> (test_time <span class="op">-</span> train_time)</span>
+<span id="cb8-60"><a href="#cb8-60" aria-hidden="true" tabindex="-1"></a>    test_loss <span class="op">/=</span> test_samples</span>
+<span id="cb8-61"><a href="#cb8-61" aria-hidden="true" tabindex="-1"></a>    test_acc <span class="op">/=</span> test_samples</span>
+<span id="cb8-62"><a href="#cb8-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-63"><a href="#cb8-63" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f'epoch = </span><span class="sc">{</span>epoch<span class="sc">}</span><span class="ss">, train_loss =</span><span class="sc">{</span>train_loss<span class="sc">: .4f}</span><span class="ss">, train_acc =</span><span class="sc">{</span>train_acc<span class="sc">: .4f}</span><span class="ss">, test_loss =</span><span class="sc">{</span>test_loss<span class="sc">: .4f}</span><span class="ss">, test_acc =</span><span class="sc">{</span>test_acc<span class="sc">: .4f}</span><span class="ss">'</span>)</span>
+<span id="cb8-64"><a href="#cb8-64" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f'train speed =</span><span class="sc">{</span>train_speed<span class="sc">: .4f}</span><span class="ss"> images/s, test speed =</span><span class="sc">{</span>test_speed<span class="sc">: .4f}</span><span class="ss"> images/s'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="converting-the-trained-snn-to-hiaer-spike-format" class="level3">
 <h3 class="anchored" data-anchor-id="converting-the-trained-snn-to-hiaer-spike-format"><strong>Converting the trained SNN to HiAER Spike Format</strong></h3>
-<div class="cell" data-execution_count="9">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> hs_api.converter <span class="im">import</span> CRI_Converter, Quantize_Network</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> hs_api.api <span class="im">import</span> CRI_network</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="co"># import hs_bridge #Uncomment when running on FPGA</span></span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="co">#Weight, Bias Quantization </span></span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>qn <span class="op">=</span> Quantize_Network() </span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>net_quan <span class="op">=</span> qn.quantize(net)</span>
-<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a><span class="co">#Set the parameters for conversion</span></span>
-<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>input_layer <span class="op">=</span> <span class="dv">1</span> <span class="co">#first pytorch layer that acts as synapses</span></span>
-<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>output_layer <span class="op">=</span> <span class="dv">4</span> <span class="co">#last pytorch layer that acts as synapses</span></span>
-<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>input_shape <span class="op">=</span> (<span class="dv">1</span>, <span class="dv">28</span>, <span class="dv">28</span>)</span>
-<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>backend <span class="op">=</span> <span class="st">'spikingjelly'</span></span>
-<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>v_threshold <span class="op">=</span> qn.v_threshold</span>
-<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>cn <span class="op">=</span> CRI_Converter(num_steps <span class="op">=</span> num_steps, </span>
-<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a>                   input_layer <span class="op">=</span> input_layer, </span>
-<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a>                   output_layer <span class="op">=</span> output_layer, </span>
-<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a>                   input_shape <span class="op">=</span> input_shape,</span>
-<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a>                   backend<span class="op">=</span>backend,</span>
-<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a>                   v_threshold <span class="op">=</span> v_threshold)</span>
-<span id="cb11-22"><a href="#cb11-22" aria-hidden="true" tabindex="-1"></a>cn.layer_converter(net_quan)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Quantized:  flat
-Quantized:  linear1
-Quantized:  lif1
-Quantized:  linear2
-Quantized:  lif2
-Quantization time: 0.0009870529174804688
-Constructing axons from linear Layer
-Input layer shape(infeature, outfeature): [ 1 28 28] 1000
-Numer of neurons: 0, number of axons: 784
-Constructing neurons from linear Layer
-Hidden layer shape(infeature, outfeature):  (1000,) 10
-Numer of neurons: 1000, number of axons: 784</code></pre>
-</div>
-</div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> hs_api.converter <span class="im">import</span> CRI_Converter, Quantize_Network, BN_Folder</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> hs_api.api <span class="im">import</span> CRI_network</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co"># import hs_bridge #Uncomment when running on FPGA</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="co">#Fold the BN layer </span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>bn <span class="op">=</span> BN_Folder() </span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>net_bn <span class="op">=</span> bn.fold(net)</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="co">#Weight, Bias Quantization </span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>qn <span class="op">=</span> Quantize_Network() </span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>net_quan <span class="op">=</span> qn.quantize(net_bn)</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a><span class="co">#Set the parameters for conversion</span></span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>input_layer <span class="op">=</span> <span class="dv">1</span> <span class="co">#first pytorch layer that acts as synapses</span></span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>output_layer <span class="op">=</span> <span class="dv">4</span> <span class="co">#last pytorch layer that acts as synapses</span></span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>input_shape <span class="op">=</span> (<span class="dv">1</span>, <span class="dv">28</span>, <span class="dv">28</span>)</span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>backend <span class="op">=</span> <span class="st">'spikingjelly'</span></span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>v_threshold <span class="op">=</span> qn.v_threshold</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="initiate-the-hiaer-spike-snn" class="level3">
 <h3 class="anchored" data-anchor-id="initiate-the-hiaer-spike-snn"><strong>Initiate the HiAER Spike SNN</strong></h3>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>config <span class="op">=</span> {}</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>config[<span class="st">'neuron_type'</span>] <span class="op">=</span> <span class="st">"I&amp;F"</span></span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>config[<span class="st">'global_neuron_params'</span>] <span class="op">=</span> {}</span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>config[<span class="st">'global_neuron_params'</span>][<span class="st">'v_thr'</span>] <span class="op">=</span> <span class="bu">int</span>(qn.v_threshold)</span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="co"># #Have to be deployed on the FPGA</span></span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="co"># hardwareNetwork = CRI_network(dict(cn.axon_dict),</span></span>
-<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="co">#                               connections=dict(cn.neuron_dict),</span></span>
-<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="co">#                               config=config,target='CRI', </span></span>
-<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a><span class="co">#                               outputs = cn.output_neurons,</span></span>
-<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a><span class="co">#                               coreID=1)</span></span>
-<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>softwareNetwork <span class="op">=</span> CRI_network(<span class="bu">dict</span>(cn.axon_dict),</span>
-<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>                              connections<span class="op">=</span><span class="bu">dict</span>(cn.neuron_dict),</span>
-<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>                              config<span class="op">=</span>config,target<span class="op">=</span><span class="st">'simpleSim'</span>, </span>
-<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>                              outputs <span class="op">=</span> cn.output_neurons,</span>
-<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a>                              coreID<span class="op">=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>config <span class="op">=</span> {}</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>config[<span class="st">'neuron_type'</span>] <span class="op">=</span> <span class="st">"I&amp;F"</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>config[<span class="st">'global_neuron_params'</span>] <span class="op">=</span> {}</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>config[<span class="st">'global_neuron_params'</span>][<span class="st">'v_thr'</span>] <span class="op">=</span> <span class="bu">int</span>(quan_fun.v_threshold)</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="co"># #Uncomment this to create a network running on the FPGA</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="co"># hardwareNetwork = CRI_network(dict(cri_convert.axon_dict),</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="co">#                               connections=dict(cri_convert.neuron_dict),</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="co">#                               config=config,target='CRI', </span></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a><span class="co">#                               outputs = cri_convert.output_neurons,</span></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a><span class="co">#                               coreID=1)</span></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>softwareNetwork <span class="op">=</span> CRI_network(<span class="bu">dict</span>(cri_convert.axon_dict),</span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>                              connections<span class="op">=</span><span class="bu">dict</span>(cri_convert.neuron_dict),</span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>                              config<span class="op">=</span>config,target<span class="op">=</span><span class="st">'simpleSim'</span>, </span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>                              outputs <span class="op">=</span> cri_convert.output_neurons,</span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>                              coreID<span class="op">=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="deploying-the-snn-on-hiaer-spike" class="level3">
 <h3 class="anchored" data-anchor-id="deploying-the-snn-on-hiaer-spike"><strong>Deploying the SNN on HiAER Spike</strong></h3>
-<p>run_sw and run_hw are two helper functions for running the spiking neural network on HiAER-Spike.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> Run_sw(<span class="va">self</span>,inputList,softwareNetwork):</span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>    predictions <span class="op">=</span> []</span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>    total_time_cri <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>    <span class="co">#each image</span></span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> currInput <span class="kw">in</span> tqdm(inputList):</span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>        <span class="co">#reset the membrane potential to zero</span></span>
-<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>        softwareNetwork.simpleSim.initialize_sim_vars(<span class="bu">len</span>(<span class="va">self</span>.neuron_dict))</span>
-<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>        spikeRate <span class="op">=</span> [<span class="dv">0</span>]<span class="op">*</span><span class="dv">10</span></span>
-<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>        <span class="co">#each time step</span></span>
-<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> <span class="bu">slice</span> <span class="kw">in</span> currInput:</span>
-<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>            start_time <span class="op">=</span> time.time()</span>
-<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>            swSpike <span class="op">=</span> softwareNetwork.step(<span class="bu">slice</span>, membranePotential<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>            end_time <span class="op">=</span> time.time()</span>
-<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a>            total_time_cri <span class="op">=</span> total_time_cri <span class="op">+</span> end_time<span class="op">-</span>start_time</span>
-<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a>            <span class="cf">for</span> spike <span class="kw">in</span> swSpike:</span>
-<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a>                spikeIdx <span class="op">=</span> <span class="bu">int</span>(spike) <span class="op">-</span> <span class="va">self</span>.bias_start_idx </span>
-<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a>                <span class="cf">try</span>: </span>
-<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a>                    <span class="cf">if</span> spikeIdx <span class="op">&gt;=</span> <span class="dv">0</span>: </span>
-<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a>                        spikeRate[spikeIdx] <span class="op">+=</span> <span class="dv">1</span> </span>
-<span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a>                <span class="cf">except</span>:</span>
-<span id="cb14-22"><a href="#cb14-22" aria-hidden="true" tabindex="-1"></a>                    <span class="bu">print</span>(<span class="st">"SpikeIdx: "</span>, spikeIdx,<span class="st">"</span><span class="ch">\n</span><span class="st"> SpikeRate:"</span>,spikeRate)</span>
-<span id="cb14-23"><a href="#cb14-23" aria-hidden="true" tabindex="-1"></a>        predictions.append(spikeRate.index(<span class="bu">max</span>(spikeRate)))</span>
-<span id="cb14-24"><a href="#cb14-24" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Total simulation execution time: </span><span class="sc">{</span>total_time_cri<span class="sc">:.5f}</span><span class="ss"> s"</span>)</span>
-<span id="cb14-25"><a href="#cb14-25" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span>(predictions)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> run_CRI_hw(<span class="va">self</span>,inputList,hardwareNetwork):</span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>    predictions <span class="op">=</span> []</span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">#each image</span></span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>    total_time_cri <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> currInput <span class="kw">in</span> tqdm(inputList):</span>
-<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>        <span class="co">#initiate the hardware for each image</span></span>
-<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>        hs_bridge.FPGA_Execution.fpga_controller.clear(<span class="bu">len</span>(<span class="va">self</span>.neuron_dict), <span class="va">False</span>, <span class="dv">0</span>)  <span class="co">##Num_neurons, simDump, coreOverride</span></span>
-<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>        spikeRate <span class="op">=</span> [<span class="dv">0</span>]<span class="op">*</span><span class="dv">10</span></span>
-<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> <span class="bu">slice</span> <span class="kw">in</span> tqdm(currInput):</span>
-<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>            start_time <span class="op">=</span> time.time()</span>
-<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>            hwSpike, latency, hbmAcc <span class="op">=</span> hardwareNetwork.step(<span class="bu">slice</span>, membranePotential<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>            <span class="co"># print(f'hwSpike: {hwSpike}\n. latency : {latency}\n. hbmAcc:{hbmAcc}')</span></span>
-<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>            end_time <span class="op">=</span> time.time()</span>
-<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a>            total_time_cri <span class="op">=</span> total_time_cri <span class="op">+</span> end_time<span class="op">-</span>start_time</span>
-<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a>            <span class="cf">for</span> spike <span class="kw">in</span> hwSpike:</span>
-<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a>                <span class="co"># print(int(spike))</span></span>
-<span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a>                spikeIdx <span class="op">=</span> <span class="bu">int</span>(spike) <span class="op">-</span> <span class="va">self</span>.bias_start_idx </span>
-<span id="cb15-18"><a href="#cb15-18" aria-hidden="true" tabindex="-1"></a>                <span class="cf">try</span>: </span>
-<span id="cb15-19"><a href="#cb15-19" aria-hidden="true" tabindex="-1"></a>                    <span class="cf">if</span> spikeIdx <span class="op">&gt;=</span> <span class="dv">0</span>: </span>
-<span id="cb15-20"><a href="#cb15-20" aria-hidden="true" tabindex="-1"></a>                        spikeRate[spikeIdx] <span class="op">+=</span> <span class="dv">1</span> </span>
-<span id="cb15-21"><a href="#cb15-21" aria-hidden="true" tabindex="-1"></a>                <span class="cf">except</span>:</span>
-<span id="cb15-22"><a href="#cb15-22" aria-hidden="true" tabindex="-1"></a>                    <span class="bu">print</span>(<span class="st">"SpikeIdx: "</span>, spikeIdx,<span class="st">"</span><span class="ch">\n</span><span class="st"> SpikeRate:"</span>,spikeRate)</span>
-<span id="cb15-23"><a href="#cb15-23" aria-hidden="true" tabindex="-1"></a>        predictions.append(spikeRate.index(<span class="bu">max</span>(spikeRate))) </span>
-<span id="cb15-24"><a href="#cb15-24" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Total execution time CRIFPGA: </span><span class="sc">{</span>total_time_cri<span class="sc">:.5f}</span><span class="ss"> s"</span>)</span>
-<span id="cb15-25"><a href="#cb15-25" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span>(predictions)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>cri_convert.bias_start_idx <span class="op">=</span> <span class="bu">int</span>(cri_convert.output_neurons[<span class="dv">0</span>])</span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>loss_fun <span class="op">=</span> nn.MSELoss()</span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>start_time <span class="op">=</span> time.time()</span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>test_loss <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>test_acc <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>test_samples <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>num_batches <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>RUN_HARDWARE <span class="op">=</span> <span class="va">False</span> <span class="co">#set to True if running on FPGA</span></span>
-<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> img, label <span class="kw">in</span> tqdm(test_loader):</span>
-<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>    cri_input <span class="op">=</span> cri_convert.input_converter(img)</span>
-<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a>    output <span class="op">=</span> <span class="va">None</span></span>
-<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> RUN_HARDWARE:</span>
-<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a>        output <span class="op">=</span> torch.tensor(run_CRI_hw(cri_input,hardwareNetwork), dtype<span class="op">=</span><span class="bu">float</span>)</span>
-<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
-<span id="cb16-17"><a href="#cb16-17" aria-hidden="true" tabindex="-1"></a>        output <span class="op">=</span> torch.tensor(run_CRI_sw(cri_input,softwareNetwork), dtype<span class="op">=</span><span class="bu">float</span>)</span>
-<span id="cb16-18"><a href="#cb16-18" aria-hidden="true" tabindex="-1"></a>    loss <span class="op">=</span> loss_fun(output, label)</span>
-<span id="cb16-19"><a href="#cb16-19" aria-hidden="true" tabindex="-1"></a>    test_samples <span class="op">+=</span> label.numel()</span>
-<span id="cb16-20"><a href="#cb16-20" aria-hidden="true" tabindex="-1"></a>    test_loss <span class="op">+=</span> loss.item() <span class="op">*</span> label.numel()</span>
-<span id="cb16-21"><a href="#cb16-21" aria-hidden="true" tabindex="-1"></a>    test_acc <span class="op">+=</span> (output <span class="op">==</span> label).<span class="bu">float</span>().<span class="bu">sum</span>().item()</span>
-<span id="cb16-22"><a href="#cb16-22" aria-hidden="true" tabindex="-1"></a>    num_batches <span class="op">+=</span> <span class="dv">1</span></span>
-<span id="cb16-23"><a href="#cb16-23" aria-hidden="true" tabindex="-1"></a>test_time <span class="op">=</span> time.time()</span>
-<span id="cb16-24"><a href="#cb16-24" aria-hidden="true" tabindex="-1"></a>test_speed <span class="op">=</span> test_samples <span class="op">/</span> (test_time <span class="op">-</span> start_time)</span>
-<span id="cb16-25"><a href="#cb16-25" aria-hidden="true" tabindex="-1"></a>test_loss <span class="op">/=</span> test_samples</span>
-<span id="cb16-26"><a href="#cb16-26" aria-hidden="true" tabindex="-1"></a>test_acc <span class="op">/=</span> test_samples</span>
-<span id="cb16-27"><a href="#cb16-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-28"><a href="#cb16-28" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'test_loss =</span><span class="sc">{</span>test_loss<span class="sc">: .4f}</span><span class="ss">, test_acc =</span><span class="sc">{</span>test_acc<span class="sc">: .4f}</span><span class="ss">'</span>)</span>
-<span id="cb16-29"><a href="#cb16-29" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'test speed =</span><span class="sc">{</span>test_speed<span class="sc">: .4f}</span><span class="ss"> images/s'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
+<p>run_sw and run_hw are two helper functions for running the spiking neural network</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> Run_sw(<span class="va">self</span>,inputList,softwareNetwork):</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    predictions <span class="op">=</span> []</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    total_time_cri <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    <span class="co">#each image</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> currInput <span class="kw">in</span> tqdm(inputList):</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>        <span class="co">#reset the membrane potential to zero</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>        softwareNetwork.simpleSim.initialize_sim_vars(<span class="bu">len</span>(<span class="va">self</span>.neuron_dict))</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>        spikeRate <span class="op">=</span> [<span class="dv">0</span>]<span class="op">*</span><span class="dv">10</span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>        <span class="co">#each time step</span></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> <span class="bu">slice</span> <span class="kw">in</span> currInput:</span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>            start_time <span class="op">=</span> time.time()</span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>            swSpike <span class="op">=</span> softwareNetwork.step(<span class="bu">slice</span>, membranePotential<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>            end_time <span class="op">=</span> time.time()</span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>            total_time_cri <span class="op">=</span> total_time_cri <span class="op">+</span> end_time<span class="op">-</span>start_time</span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>            <span class="cf">for</span> spike <span class="kw">in</span> swSpike:</span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a>                spikeIdx <span class="op">=</span> <span class="bu">int</span>(spike) <span class="op">-</span> <span class="va">self</span>.bias_start_idx </span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a>                <span class="cf">try</span>: </span>
+<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a>                    <span class="cf">if</span> spikeIdx <span class="op">&gt;=</span> <span class="dv">0</span>: </span>
+<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a>                        spikeRate[spikeIdx] <span class="op">+=</span> <span class="dv">1</span> </span>
+<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a>                <span class="cf">except</span>:</span>
+<span id="cb11-22"><a href="#cb11-22" aria-hidden="true" tabindex="-1"></a>                    <span class="bu">print</span>(<span class="st">"SpikeIdx: "</span>, spikeIdx,<span class="st">"</span><span class="ch">\n</span><span class="st"> SpikeRate:"</span>,spikeRate)</span>
+<span id="cb11-23"><a href="#cb11-23" aria-hidden="true" tabindex="-1"></a>        predictions.append(spikeRate.index(<span class="bu">max</span>(spikeRate)))</span>
+<span id="cb11-24"><a href="#cb11-24" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Total simulation execution time: </span><span class="sc">{</span>total_time_cri<span class="sc">:.5f}</span><span class="ss"> s"</span>)</span>
+<span id="cb11-25"><a href="#cb11-25" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span>(predictions)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> run_CRI_hw(<span class="va">self</span>,inputList,hardwareNetwork):</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>    predictions <span class="op">=</span> []</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">#each image</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>    total_time_cri <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> currInput <span class="kw">in</span> tqdm(inputList):</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>        <span class="co">#initiate the hardware for each image</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>        hs_bridge.FPGA_Execution.fpga_controller.clear(<span class="bu">len</span>(<span class="va">self</span>.neuron_dict), <span class="va">False</span>, <span class="dv">0</span>)  <span class="co">##Num_neurons, simDump, coreOverride</span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>        spikeRate <span class="op">=</span> [<span class="dv">0</span>]<span class="op">*</span><span class="dv">10</span></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>        <span class="co">#each time step</span></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> <span class="bu">slice</span> <span class="kw">in</span> tqdm(currInput):</span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>            start_time <span class="op">=</span> time.time()</span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>            hwSpike, latency, hbmAcc <span class="op">=</span> hardwareNetwork.step(<span class="bu">slice</span>, membranePotential<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>            <span class="bu">print</span>(<span class="ss">f'hwSpike: </span><span class="sc">{</span>hwSpike<span class="sc">}</span><span class="ch">\n</span><span class="ss">. latency : </span><span class="sc">{</span>latency<span class="sc">}</span><span class="ch">\n</span><span class="ss">. hbmAcc:</span><span class="sc">{</span>hbmAcc<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>            end_time <span class="op">=</span> time.time()</span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>            total_time_cri <span class="op">=</span> total_time_cri <span class="op">+</span> end_time<span class="op">-</span>start_time</span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>            <span class="cf">for</span> spike <span class="kw">in</span> hwSpike:</span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a>                <span class="co"># print(int(spike))</span></span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a>                spikeIdx <span class="op">=</span> <span class="bu">int</span>(spike) <span class="op">-</span> <span class="va">self</span>.bias_start_idx </span>
+<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a>                <span class="cf">try</span>: </span>
+<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a>                    <span class="cf">if</span> spikeIdx <span class="op">&gt;=</span> <span class="dv">0</span>: </span>
+<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a>                        spikeRate[spikeIdx] <span class="op">+=</span> <span class="dv">1</span> </span>
+<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a>                <span class="cf">except</span>:</span>
+<span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a>                    <span class="bu">print</span>(<span class="st">"SpikeIdx: "</span>, spikeIdx,<span class="st">"</span><span class="ch">\n</span><span class="st"> SpikeRate:"</span>,spikeRate)</span>
+<span id="cb12-24"><a href="#cb12-24" aria-hidden="true" tabindex="-1"></a>        predictions.append(spikeRate.index(<span class="bu">max</span>(spikeRate))) </span>
+<span id="cb12-25"><a href="#cb12-25" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Total execution time CRIFPGA: </span><span class="sc">{</span>total_time_cri<span class="sc">:.5f}</span><span class="ss"> s"</span>)</span>
+<span id="cb12-26"><a href="#cb12-26" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span>(predictions)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>cri_convert.bias_start_idx <span class="op">=</span> <span class="bu">int</span>(cri_convert.output_neurons[<span class="dv">0</span>])</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>loss_fun <span class="op">=</span> nn.MSELoss()</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>start_time <span class="op">=</span> time.time()</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>test_loss <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>test_acc <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>test_samples <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>num_batches <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>RUN_HARDWARE <span class="op">=</span> <span class="va">False</span> <span class="co">#Set to True if running on FPGA</span></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> img, label <span class="kw">in</span> tqdm(test_loader):</span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>    cri_input <span class="op">=</span> cri_convert.input_converter(img)</span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>    output <span class="op">=</span> <span class="va">None</span></span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> RUN_HARDWARE:</span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>        output <span class="op">=</span> torch.tensor(run_CRI_hw(cri_input,hardwareNetwork), dtype<span class="op">=</span><span class="bu">float</span>)</span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a>        output <span class="op">=</span> torch.tensor(run_CRI_sw(cri_input,softwareNetwork), dtype<span class="op">=</span><span class="bu">float</span>)</span>
+<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a>    loss <span class="op">=</span> loss_fun(output, label)</span>
+<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a>    test_samples <span class="op">+=</span> label.numel()</span>
+<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a>    test_loss <span class="op">+=</span> loss.item() <span class="op">*</span> label.numel()</span>
+<span id="cb13-21"><a href="#cb13-21" aria-hidden="true" tabindex="-1"></a>    test_acc <span class="op">+=</span> (output <span class="op">==</span> label).<span class="bu">float</span>().<span class="bu">sum</span>().item()</span>
+<span id="cb13-22"><a href="#cb13-22" aria-hidden="true" tabindex="-1"></a>    num_batches <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb13-23"><a href="#cb13-23" aria-hidden="true" tabindex="-1"></a>test_time <span class="op">=</span> time.time()</span>
+<span id="cb13-24"><a href="#cb13-24" aria-hidden="true" tabindex="-1"></a>test_speed <span class="op">=</span> test_samples <span class="op">/</span> (test_time <span class="op">-</span> start_time)</span>
+<span id="cb13-25"><a href="#cb13-25" aria-hidden="true" tabindex="-1"></a>test_loss <span class="op">/=</span> test_samples</span>
+<span id="cb13-26"><a href="#cb13-26" aria-hidden="true" tabindex="-1"></a>test_acc <span class="op">/=</span> test_samples</span>
+<span id="cb13-27"><a href="#cb13-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-28"><a href="#cb13-28" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'test_loss =</span><span class="sc">{</span>test_loss<span class="sc">: .4f}</span><span class="ss">, test_acc =</span><span class="sc">{</span>test_acc<span class="sc">: .4f}</span><span class="ss">'</span>)</span>
+<span id="cb13-29"><a href="#cb13-29" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'test speed =</span><span class="sc">{</span>test_speed<span class="sc">: .4f}</span><span class="ss"> images/s'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+
 </section>
 </section>
 
-</main>
-<!-- /main column -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -704,6 +717,23 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+ <div id="left-footer" style="display: flex; justify-content: space-between; align-items: center;"><div><img src="../../images/isn_brain_logo_square.png" alt="ISN Lab Logo" style="margin-right: 10px;"><span>© 2023 Integrated Systems Neuroengineering Lab, released under the <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0 license</a></span></div><span>Built with <a href="https://quarto.org">Quarto</a></span></div>
+  </li>  
+</ul>
+    </div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
 
 
 
