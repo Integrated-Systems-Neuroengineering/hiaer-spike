@@ -1,1 +1,1 @@
-Sitemap: https://github.com/shashankbansal6/HiAER-Spike/sitemap.xml
+Sitemap: https://github.com/Integrated-Systems-Neuroengineering/hiaer-spike/sitemap.xml
