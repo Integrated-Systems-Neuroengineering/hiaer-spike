@@ -1,6 +1,10 @@
 # Convolutional SNN
 ### **Classifying Fashion-MNIST with Convolutional SNN**
 
+<a target="_blank" href="https://colab.research.google.com/github/Integrated-Systems-Neuroengineering/hiaer-spike/blob/main/notebooks/cnn.ipynb">
+  <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
+</a>
+
 This tutorial goes over how to train a convolutional spiking neural network (CSNN) on the Fashion-MNIST dataset and deploy on HiAER Spike using our conversion pipline.
 
 ### **Define a CSNN**

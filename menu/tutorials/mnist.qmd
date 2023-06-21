@@ -1,6 +1,10 @@
 # MNIST 
 ### **Feedforward Fully Connected SNN**
 
+<a target="_blank" href="https://colab.research.google.com/github/Integrated-Systems-Neuroengineering/hiaer-spike/blob/main/notebooks/mnist.ipynb">
+  <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
+</a>
+
 This tutorial goes over how to train a simple feedforward SNN and deploy on HiAER Spike using our 
 conversion pipline.
 
