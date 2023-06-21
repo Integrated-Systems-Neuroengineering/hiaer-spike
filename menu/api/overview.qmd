@@ -26,7 +26,7 @@ $ pip install hs_api
 - First install [Poetry](https://python-poetry.org/)
   - If Poetry doesn't install it may be necessary to install an alternative Python distribution such as [Conda](https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html)
 
-- Clone the following dependencies and the hs_api repo: 
+- Clone the following dependencies and the `hs_api` repo: 
 ```bash
 # Dependencies
 $ git clone https://github.com/Integrated-Systems-Neuroengineering/connectome_utils.git
