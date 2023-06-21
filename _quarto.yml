@@ -24,9 +24,9 @@ website:
       - text: Tutorials
         menu:
           - text: CNN
-            href: menu/tutorials/cnn.ipynb
+            href: menu/tutorials/cnn.html
           - text: MNIST
-            href: menu/tutorials/mnist.ipynb
+            href: menu/tutorials/mnist.html
       - text: API
         menu:
           - text: Overview
