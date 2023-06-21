@@ -3,6 +3,9 @@ project:
   output-dir: docs
   preview:
     port: 4200
+  render:
+    - "*.qmd"
+    - "!collab/"
 
 website:
   title: "HiAER-Spike"
