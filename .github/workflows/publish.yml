@@ -14,8 +14,36 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v3
 
+      - name: Install python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.9
+        
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
+      - name: build docs
+        run: |
+        make docs
+
+      - name: Create Github Deployment
+        uses: bobheadxi/deployments@v0.4.3
+        id: deployment
+        with:
+          step: start
+          token: ${{ secrets.GITHUB_TOKEN }}
+          ref: ${{ github.head_ref }}
+          transient: true
+          logs: 'https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}'
+
+      # - uses: peaceiris/actions-gh-pages@v3
+      #   if: github.event_name == 'release'
+      #   with:
+      #     github_token: ${{ secrets.GITHUB_TOKEN }}
+      #     publish_dir: docs/_build
 
       - name: Render and Publish
         uses: quarto-dev/quarto-actions/publish@v2

@@ -3,3 +3,4 @@
 config.toml
 /_site/
 *.DS_Store*
+notebooks/data/

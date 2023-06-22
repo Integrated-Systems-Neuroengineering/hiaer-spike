@@ -1,0 +1,10 @@
+# hs_api:v0.1.0
+
+## API Reference
+
+Reference for the hs_api package
+
+| | |
+| --- | --- |
+| [api](api.qmd#hs_api.api) |  |
+| [api.CRI_network](api.CRI_network.qmd#hs_api.api.CRI_network) | This class represents a CRI network which initializes the network, checks hardware, generates connectome, formats input, reads and writes synapse, and runs simulation steps. |

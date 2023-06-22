@@ -5,11 +5,11 @@ project:
     port: 4200
   render:
     - "*.qmd"
-    - "!collab/"
+    - "!notebooks/"
 
 website:
   title: "HiAER-Spike"
-  repo-url: https://github.com/Integrated-Systems-Neuroengineering/hiaer-spike.git
+  repo-url: https://github.com/Integrated-Systems-Neuroengineering/hiaer-spike
   repo-actions: [issue]
   page-footer:
     left:
@@ -35,17 +35,32 @@ website:
             href: menu/api/usage.qmd
           - text: Submitting Jobs to CRI
             href: menu/api/submitting-jobs.qmd
-            #   - text: Example
-            #     href: menu/api/submitting-jobs.qmd
+      - text: Reference
+        file: reference/index.qmd
     right:
       - icon: github
         menu:
           - text: Source Code
-            url: https://github.com/shashankbansal6/hiaer-spike.git
-          - text: Report a Bug
             url: https://github.com/Integrated-Systems-Neuroengineering/hiaer-spike.git
+          - text: Report a Bug
+            url: https://github.com/Integrated-Systems-Neuroengineering/hiaer-spike/issues/new
       - text: "<img src='/images/favicon/isn_brain_only/favicon.ico' alt='ISN Lab Logo' height='25px'> ISN @ UC San Diego"
         href: https://isn.ucsd.edu/
+
+quartodoc:
+  style: pkgdown
+  title: "hs_api:v0.1.0"
+  package: hs_api
+  renderer:
+    style: markdown
+    display_name: relative
+  sections:
+    - title: API Reference
+      desc: Reference for the hs_api package
+      contents:
+        - name: api
+        - api.CRI_network
+
 format:
   html:
     theme: flatly
