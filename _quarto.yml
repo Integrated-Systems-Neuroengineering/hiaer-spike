@@ -49,7 +49,7 @@ website:
   
   sidebar:
     - id: reference
-      contents: "_sidebar.yml"
+      contents: "reference/_sidebar.yml"
 
 quartodoc:
   style: pkgdown
@@ -58,7 +58,7 @@ quartodoc:
   renderer:
     style: markdown
     display_name: relative
-  sidebar: "_sidebar.yml"
+  sidebar: "reference/_sidebar.yml"
   sections:
     - title: API
       desc: "hs_api.api module"
@@ -75,7 +75,7 @@ quartodoc:
         - converter.weight_quantization
 
 metadata-files:
-  - _sidebar.yml
+  - reference/_sidebar.yml
 
 format:
   html:

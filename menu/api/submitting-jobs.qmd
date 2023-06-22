@@ -1,11 +1,10 @@
 ---
-title: ""
+title: "Submitting Jobs to Run on the CRI Hardware"
 format:
   html:
     page-layout: full
 ---
 
-## **Submitting Jobs to Run on the CRI Hardware**
 The same Python scripts you’ve developed and run on your local machine can be deployed to the CRI servers to run on the actual CRI hardware. Just make sure all the libraries you import in your script are available on the [CRI servers](https://github.com/Integrated-Systems-Neuroengineering/L2S/blob/main/Python%20libraries%20present%20on%20the%20CRI%20servers). The CRI hardware is hosted in the San Diego Supercomputing Center and jobs may be submitted to run on the hardware via the [Neuroscience Gateway](https://www.nsgportal.org/index.html). First you must register an account with Neuroscience Gateway in order to submit jobs. Perform the following steps to submit a task to NSG
 
 1. Put your CRI Python script in a folder of any name, then zip the folder

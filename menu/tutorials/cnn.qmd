@@ -1,4 +1,7 @@
-# Convolutional SNN
+---
+title: "Convolutional SNN"
+---
+
 ### **Classifying Fashion-MNIST with Convolutional SNN**
 
 <a target="_blank" href="https://colab.research.google.com/github/Integrated-Systems-Neuroengineering/hiaer-spike/blob/main/notebooks/cnn.ipynb">
