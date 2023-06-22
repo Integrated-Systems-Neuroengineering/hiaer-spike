@@ -1,0 +1,43 @@
+# converter.BN_Folder { #hs_api.converter.BN_Folder }
+
+`converter.BN_Folder(self)`
+
+A class to perform batch normalization folding on a model.
+
+## Examples
+
+```python
+>>> bn_folder = BN_Folder()
+>>> bn_folder.fold(some_model)
+```
+
+## Methods
+
+| Name | Description |
+| --- | --- |
+| [fold](#hs_api.converter.BN_Folder.fold) | Performs batch normalization folding on a model. |
+
+### fold { #hs_api.converter.BN_Folder.fold }
+
+`converter.BN_Folder.fold(self, model)`
+
+Performs batch normalization folding on a model.
+
+#### Parameters
+
+| Name    | Type            | Description      | Default   |
+|---------|-----------------|------------------|-----------|
+| `model` | torch.nn.Module | The input model. | required  |
+
+#### Returns
+
+| Type            | Description                                |
+|-----------------|--------------------------------------------|
+| torch.nn.Module | The model with batch normalization folded. |
+
+#### Examples
+
+```python
+>>> bn_folder = BN_Folder()
+>>> bn_folder.fold(some_model)
+```

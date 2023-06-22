@@ -1,0 +1,87 @@
+# converter.Quantize_Network { #hs_api.converter.Quantize_Network }
+
+`converter.Quantize_Network(self, w_alpha=1, dynamic_alpha=False)`
+
+A class to perform quantization on a neural network.
+
+## Parameters
+
+| Name            | Type   | Description                                                      | Default   |
+|-----------------|--------|------------------------------------------------------------------|-----------|
+| `w_alpha`       | float  | The alpha value for the quantization. Default is 1.              | `1`       |
+| `dynamic_alpha` | bool   | Whether to use dynamic alpha for quantization. Default is False. | `False`   |
+
+## Attributes
+
+| Name          | Type               | Description                                          |
+|---------------|--------------------|------------------------------------------------------|
+| w_alpha       | float              | The alpha value for the quantization.                |
+| dynamic_alpha | bool               | Whether to use dynamic alpha for quantization.       |
+| v_threshold   | float or None      | The threshold for the quantization. Default is None. |
+| w_bits        | int                | The number of bits to use for the quantization.      |
+| w_delta       | float              | The delta value for the quantization.                |
+| weight_quant  | weight_quantize_fn | The weight quantization function.                    |
+
+## Examples
+
+```python
+>>> q_net = Quantize_Network(w_alpha=1, dynamic_alpha=True)
+>>> q_net.quantize(some_model)
+```
+
+## Methods
+
+| Name | Description |
+| --- | --- |
+| [quantize](#hs_api.converter.Quantize_Network.quantize) | Performs quantization on a model. |
+| [quantize_block](#hs_api.converter.Quantize_Network.quantize_block) | Performs quantization on a block of a model. |
+
+### quantize { #hs_api.converter.Quantize_Network.quantize }
+
+`converter.Quantize_Network.quantize(self, model)`
+
+Performs quantization on a model.
+
+#### Parameters
+
+| Name    | Type            | Description      | Default   |
+|---------|-----------------|------------------|-----------|
+| `model` | torch.nn.Module | The input model. | required  |
+
+#### Returns
+
+| Type            | Description          |
+|-----------------|----------------------|
+| torch.nn.Module | The quantized model. |
+
+#### Examples
+
+```python
+>>> q_net = Quantize_Network(w_alpha=1, dynamic_alpha=True)
+>>> q_net.quantize(some_model)
+```
+
+### quantize_block { #hs_api.converter.Quantize_Network.quantize_block }
+
+`converter.Quantize_Network.quantize_block(self, model)`
+
+Performs quantization on a block of a model.
+
+#### Parameters
+
+| Name    | Type            | Description      | Default   |
+|---------|-----------------|------------------|-----------|
+| `model` | torch.nn.Module | The input model. | required  |
+
+#### Returns
+
+| Type            | Description          |
+|-----------------|----------------------|
+| torch.nn.Module | The quantized model. |
+
+#### Examples
+
+```python
+>>> q_net = Quantize_Network(w_alpha=1, dynamic_alpha=True)
+>>> q_net.quantize_block(some_model)
+```

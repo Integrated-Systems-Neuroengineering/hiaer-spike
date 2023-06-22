@@ -34,13 +34,7 @@ jobs:
       - name: build docs
         run: |
           make docs
-
-      # - uses: peaceiris/actions-gh-pages@v3
-      #   if: github.event_name == 'release'
-      #   with:
-      #     github_token: ${{ secrets.GITHUB_TOKEN }}
-      #     publish_dir: docs/_build
-
+          
       - name: Render and Publish
         uses: quarto-dev/quarto-actions/publish@v2
         with:

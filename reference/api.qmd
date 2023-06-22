@@ -1,3 +1,0 @@
-# api { #hs_api.api }
-
-`api`

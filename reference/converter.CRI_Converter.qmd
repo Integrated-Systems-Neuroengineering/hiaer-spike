@@ -1,0 +1,159 @@
+# converter.CRI_Converter { #hs_api.converter.CRI_Converter }
+
+`converter.CRI_Converter(self, num_steps=4, input_layer=0, output_layer=11, input_shape=(1, 28, 28), backend='spikingjelly', v_threshold=1000000.0, embed_dim=4)`
+
+A class to convert a neural network model into an equivalent model compatible
+with the CRI (Capacitive ReRAM Inverter) hardware.
+
+## Parameters
+
+| Name           | Type         | Description                                            | Default          |
+|----------------|--------------|--------------------------------------------------------|------------------|
+| `num_steps`    | int          | The number of time steps in the input. Default is 4.   | `4`              |
+| `input_layer`  | int          | The index of the input layer. Default is 0.            | `0`              |
+| `output_layer` | int          | The index of the output layer. Default is 11.          | `11`             |
+| `input_shape`  | tuple of int | The shape of the input data. Default is (1, 28, 28).   | `(1, 28, 28)`    |
+| `backend`      | str          | The backend to use. Default is 'spikingjelly'.         | `'spikingjelly'` |
+| `v_threshold`  | float        | The voltage threshold for the neurons. Default is 1e6. | `1000000.0`      |
+| `embed_dim`    | int          | The embedding dimension. Default is 4.                 | `4`              |
+
+## Attributes
+
+| Name                | Type                | Description                                                    |
+|---------------------|---------------------|----------------------------------------------------------------|
+| HIGH_SYNAPSE_WEIGHT | float               | The high synapse weight value. Default is 1e6.                 |
+| axon_dict           | defaultdict of list | A dictionary mapping each axon to a list of connected neurons. |
+| neuron_dict         | defaultdict of list | A dictionary mapping each neuron to a list of connected axons. |
+| output_neurons      | list                | A list of output neurons.                                      |
+| input_shape         | numpy.ndarray       | The shape of the input data.                                   |
+| num_steps           | int                 | The number of time steps in the input.                         |
+| axon_offset         | int                 | The current offset for axon indexing.                          |
+| neuron_offset       | int                 | The current offset for neuron indexing.                        |
+| backend             | str                 | The backend to use.                                            |
+| save_input          | bool                | Whether to save the input data.                                |
+| bias_start_idx      | int or None         | The starting index for bias neurons.                           |
+| curr_input          | np.ndarray or None  | The current input data.                                        |
+| input_layer         | int                 | The index of the input layer.                                  |
+| output_layer        | int                 | The index of the output layer.                                 |
+| layer_index         | int                 | The current layer index.                                       |
+| total_axonSyn       | int                 | The total number of axon synapses.                             |
+| total_neuronSyn     | int                 | The total number of neuron synapses.                           |
+| max_fan             | int                 | The maximum fan-out.                                           |
+| v_threshold         | float               | The voltage threshold for the neurons.                         |
+| q                   | np.ndarray or None  | The q matrix for attention conversion.                         |
+| v                   | np.ndarray or None  | The v matrix for attention conversion.                         |
+| k                   | np.ndarray or None  | The k matrix for attention conversion.                         |
+| embed_dim           | int                 | The embedding dimension.                                       |
+
+## Examples
+
+```python
+>>> converter = CRI_Converter()
+>>> converter.layer_converter(some_model)
+>>> converter.input_converter(some_input_data)
+```
+
+## Methods
+
+| Name | Description |
+| --- | --- |
+| [input_converter](#hs_api.converter.CRI_Converter.input_converter) | Converts input data into a spike train and then into a list of axon indices. |
+| [layer_converter](#hs_api.converter.CRI_Converter.layer_converter) | Converts a model into a CRI-compatible model. |
+| [run_CRI_hw](#hs_api.converter.CRI_Converter.run_CRI_hw) | Runs a set of inputs through the hardware implementation of the network and gets the output predictions. |
+| [run_CRI_sw](#hs_api.converter.CRI_Converter.run_CRI_sw) | Runs a set of inputs through the software simulation of the network and gets the output predictions. |
+
+### input_converter { #hs_api.converter.CRI_Converter.input_converter }
+
+`converter.CRI_Converter.input_converter(self, input_data)`
+
+Converts input data into a spike train and then into a list of axon indices.
+
+#### Parameters
+
+| Name         | Type         | Description     | Default   |
+|--------------|--------------|-----------------|-----------|
+| `input_data` | torch.Tensor | The input data. | required  |
+
+#### Returns
+
+| Type                | Description                                                         |
+|---------------------|---------------------------------------------------------------------|
+| list of list of str | The batch of spikes, with each spike represented by its axon index. |
+
+#### Examples
+
+```python
+>>> converter = CRI_Converter()
+>>> converter.input_converter(some_input_data)
+```
+
+### layer_converter { #hs_api.converter.CRI_Converter.layer_converter }
+
+`converter.CRI_Converter.layer_converter(self, model)`
+
+Converts a model into a CRI-compatible model.
+
+#### Parameters
+
+| Name    | Type            | Description      | Default   |
+|---------|-----------------|------------------|-----------|
+| `model` | torch.nn.Module | The input model. | required  |
+
+#### Examples
+
+```python
+>>> converter = CRI_Converter()
+>>> converter.layer_converter(some_model)
+```
+
+### run_CRI_hw { #hs_api.converter.CRI_Converter.run_CRI_hw }
+
+`converter.CRI_Converter.run_CRI_hw(self, inputList, hardwareNetwork)`
+
+Runs a set of inputs through the hardware implementation of the network and gets the output predictions.
+
+#### Parameters
+
+| Name              | Type                | Description                                                                        | Default   |
+|-------------------|---------------------|------------------------------------------------------------------------------------|-----------|
+| `inputList`       | list of list of str | The input data, where each item is a list of axon indices representing the spikes. | required  |
+| `hardwareNetwork` | object              | The hardware network object.                                                       | required  |
+
+#### Returns
+
+| Type        | Description             |
+|-------------|-------------------------|
+| list of int | The output predictions. |
+
+#### Examples
+
+```python
+>>> converter = CRI_Converter()
+>>> converter.run_CRI_hw(some_inputList, some_hardwareNetwork)
+```
+
+### run_CRI_sw { #hs_api.converter.CRI_Converter.run_CRI_sw }
+
+`converter.CRI_Converter.run_CRI_sw(self, inputList, softwareNetwork)`
+
+Runs a set of inputs through the software simulation of the network and gets the output predictions.
+
+#### Parameters
+
+| Name              | Type                | Description                                                                        | Default   |
+|-------------------|---------------------|------------------------------------------------------------------------------------|-----------|
+| `inputList`       | list of list of str | The input data, where each item is a list of axon indices representing the spikes. | required  |
+| `softwareNetwork` | object              | The software network object.                                                       | required  |
+
+#### Returns
+
+| Type        | Description             |
+|-------------|-------------------------|
+| list of int | The output predictions. |
+
+#### Examples
+
+```python
+>>> converter = CRI_Converter()
+>>> converter.run_CRI_sw(some_inputList, some_softwareNetwork)
+```

@@ -46,20 +46,36 @@ website:
             url: https://github.com/Integrated-Systems-Neuroengineering/hiaer-spike/issues/new
       - text: "<img src='/images/favicon/isn_brain_only/favicon.ico' alt='ISN Lab Logo' height='25px'> ISN @ UC San Diego"
         href: https://isn.ucsd.edu/
+  
+  sidebar:
+    - id: reference
+      contents: "_sidebar.yml"
 
 quartodoc:
   style: pkgdown
-  title: "hs_api:v0.1.0"
+  title: "HS_API v0.1.0"
   package: hs_api
   renderer:
     style: markdown
     display_name: relative
+  sidebar: "_sidebar.yml"
   sections:
-    - title: API Reference
-      desc: Reference for the hs_api package
+    - title: API
+      desc: "hs_api.api module"
       contents:
-        - name: api
         - api.CRI_network
+    
+    - title: Converter
+      desc: "hs_api.converter module"
+      contents:
+        - name: converter
+        - converter.CRI_Converter
+        - converter.BN_Folder
+        - converter.Quantize_Network
+        - converter.weight_quantization
+
+metadata-files:
+  - _sidebar.yml
 
 format:
   html:

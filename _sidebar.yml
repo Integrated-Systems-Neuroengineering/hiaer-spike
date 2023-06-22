@@ -1,0 +1,16 @@
+website:
+  sidebar:
+  - contents:
+    - reference/index.qmd
+    - contents:
+      - reference/api.CRI_network.qmd
+      section: API
+    - contents:
+      - reference/converter.qmd
+      - reference/converter.CRI_Converter.qmd
+      - reference/converter.BN_Folder.qmd
+      - reference/converter.Quantize_Network.qmd
+      - reference/converter.weight_quantization.qmd
+      section: Converter
+    id: reference
+  - id: dummy-sidebar

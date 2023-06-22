@@ -1,10 +1,21 @@
-# hs_api:v0.1.0
+# HS_API v0.1.0
 
-## API Reference
+## API
 
-Reference for the hs_api package
+hs_api.api module
 
 | | |
 | --- | --- |
-| [api](api.qmd#hs_api.api) |  |
 | [api.CRI_network](api.CRI_network.qmd#hs_api.api.CRI_network) | This class represents a CRI network which initializes the network, checks hardware, generates connectome, |
+
+## Converter
+
+hs_api.converter module
+
+| | |
+| --- | --- |
+| [converter](converter.qmd#hs_api.converter) |  |
+| [converter.CRI_Converter](converter.CRI_Converter.qmd#hs_api.converter.CRI_Converter) | A class to convert a neural network model into an equivalent model compatible |
+| [converter.BN_Folder](converter.BN_Folder.qmd#hs_api.converter.BN_Folder) | A class to perform batch normalization folding on a model. |
+| [converter.Quantize_Network](converter.Quantize_Network.qmd#hs_api.converter.Quantize_Network) | A class to perform quantization on a neural network. |
+| [converter.weight_quantization](converter.weight_quantization.qmd#hs_api.converter.weight_quantization) | Applies weight quantization to the input. |

@@ -1,0 +1,24 @@
+# converter.weight_quantization { #hs_api.converter.weight_quantization }
+
+`converter.weight_quantization(b)`
+
+Applies weight quantization to the input.
+
+## Parameters
+
+| Name   | Type   | Description                                     | Default   |
+|--------|--------|-------------------------------------------------|-----------|
+| `b`    | int    | The number of bits to use for the quantization. | required  |
+
+## Returns
+
+| Type     | Description                                               |
+|----------|-----------------------------------------------------------|
+| function | A function that applies weight quantization to its input. |
+
+## Examples
+
+```python
+>>> weight_quantization_func = weight_quantization(8)
+>>> weight_quantization_func(some_input)
+```
