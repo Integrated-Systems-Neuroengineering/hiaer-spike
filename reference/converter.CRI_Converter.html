@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>HiAER-Spike – index</title>
+<title>HiAER-Spike – converter.cri_converter</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +19,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -161,7 +195,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../reference/index.html">HS_API v0.1.0</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../reference/converter.html">Converter</a></li><li class="breadcrumb-item"><a href="../reference/converter.CRI_Converter.html">converter.CRI_Converter</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
     </div>
@@ -175,7 +209,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../reference/index.html" class="sidebar-item-text sidebar-link active">
+  <a href="../reference/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">HS_API v0.1.0</span></a>
   </div>
 </li>
@@ -213,7 +247,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../reference/converter.CRI_Converter.html" class="sidebar-item-text sidebar-link">
+  <a href="../reference/converter.CRI_Converter.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">converter.CRI_Converter</span></a>
   </div>
 </li>
@@ -247,10 +281,18 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#hs_api-v0.1.0" id="toc-hs_api-v0.1.0" class="nav-link active" data-scroll-target="#hs_api-v0.1.0">HS_API v0.1.0</a>
+  <li><a href="#hs_api.converter.CRI_Converter" id="toc-hs_api.converter.CRI_Converter" class="nav-link active" data-scroll-target="#hs_api.converter.CRI_Converter">converter.CRI_Converter</a>
   <ul class="collapse">
-  <li><a href="#api" id="toc-api" class="nav-link" data-scroll-target="#api">API</a></li>
-  <li><a href="#converter" id="toc-converter" class="nav-link" data-scroll-target="#converter">Converter</a></li>
+  <li><a href="#parameters" id="toc-parameters" class="nav-link" data-scroll-target="#parameters">Parameters</a></li>
+  <li><a href="#attributes" id="toc-attributes" class="nav-link" data-scroll-target="#attributes">Attributes</a></li>
+  <li><a href="#examples" id="toc-examples" class="nav-link" data-scroll-target="#examples">Examples</a></li>
+  <li><a href="#methods" id="toc-methods" class="nav-link" data-scroll-target="#methods">Methods</a>
+  <ul class="collapse">
+  <li><a href="#hs_api.converter.CRI_Converter.input_converter" id="toc-hs_api.converter.CRI_Converter.input_converter" class="nav-link" data-scroll-target="#hs_api.converter.CRI_Converter.input_converter">input_converter</a></li>
+  <li><a href="#hs_api.converter.CRI_Converter.layer_converter" id="toc-hs_api.converter.CRI_Converter.layer_converter" class="nav-link" data-scroll-target="#hs_api.converter.CRI_Converter.layer_converter">layer_converter</a></li>
+  <li><a href="#hs_api.converter.CRI_Converter.run_CRI_hw" id="toc-hs_api.converter.CRI_Converter.run_CRI_hw" class="nav-link" data-scroll-target="#hs_api.converter.CRI_Converter.run_CRI_hw">run_CRI_hw</a></li>
+  <li><a href="#hs_api.converter.CRI_Converter.run_CRI_sw" id="toc-hs_api.converter.CRI_Converter.run_CRI_sw" class="nav-link" data-scroll-target="#hs_api.converter.CRI_Converter.run_CRI_sw">run_CRI_sw</a></li>
+  </ul></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/Integrated-Systems-Neuroengineering/hiaer-spike/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
@@ -260,49 +302,446 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<section id="hs_api-v0.1.0" class="level1">
-<h1>HS_API v0.1.0</h1>
-<section id="api" class="level2">
-<h2 class="anchored" data-anchor-id="api">API</h2>
-<p>hs_api.api module</p>
+<section id="hs_api.converter.CRI_Converter" class="level1">
+<h1>converter.CRI_Converter</h1>
+<p><code>converter.CRI_Converter(self, num_steps=4, input_layer=0, output_layer=11, input_shape=(1, 28, 28), backend='spikingjelly', v_threshold=1000000.0, embed_dim=4)</code></p>
+<p>A class to convert a neural network model into an equivalent model compatible with the CRI (Capacitive ReRAM Inverter) hardware.</p>
+<section id="parameters" class="level2">
+<h2 class="anchored" data-anchor-id="parameters">Parameters</h2>
 <table class="table">
+<colgroup>
+<col style="width: 15%">
+<col style="width: 13%">
+<col style="width: 53%">
+<col style="width: 17%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
 <tbody>
 <tr class="odd">
-<td><a href="../reference/api.CRI_network.html#hs_api.api.CRI_network">api.CRI_network</a></td>
-<td>This class represents a CRI network which initializes the network, checks hardware, generates connectome,</td>
+<td><code>num_steps</code></td>
+<td>int</td>
+<td>The number of time steps in the input. Default is 4.</td>
+<td><code>4</code></td>
+</tr>
+<tr class="even">
+<td><code>input_layer</code></td>
+<td>int</td>
+<td>The index of the input layer. Default is 0.</td>
+<td><code>0</code></td>
+</tr>
+<tr class="odd">
+<td><code>output_layer</code></td>
+<td>int</td>
+<td>The index of the output layer. Default is 11.</td>
+<td><code>11</code></td>
+</tr>
+<tr class="even">
+<td><code>input_shape</code></td>
+<td>tuple of int</td>
+<td>The shape of the input data. Default is (1, 28, 28).</td>
+<td><code>(1, 28, 28)</code></td>
+</tr>
+<tr class="odd">
+<td><code>backend</code></td>
+<td>str</td>
+<td>The backend to use. Default is ‘spikingjelly’.</td>
+<td><code>'spikingjelly'</code></td>
+</tr>
+<tr class="even">
+<td><code>v_threshold</code></td>
+<td>float</td>
+<td>The voltage threshold for the neurons. Default is 1e6.</td>
+<td><code>1000000.0</code></td>
+</tr>
+<tr class="odd">
+<td><code>embed_dim</code></td>
+<td>int</td>
+<td>The embedding dimension. Default is 4.</td>
+<td><code>4</code></td>
 </tr>
 </tbody>
 </table>
 </section>
-<section id="converter" class="level2">
-<h2 class="anchored" data-anchor-id="converter">Converter</h2>
-<p>hs_api.converter module</p>
+<section id="attributes" class="level2">
+<h2 class="anchored" data-anchor-id="attributes">Attributes</h2>
 <table class="table">
+<colgroup>
+<col style="width: 19%">
+<col style="width: 19%">
+<col style="width: 60%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
 <tbody>
 <tr class="odd">
-<td><a href="../reference/converter.html#hs_api.converter">converter</a></td>
-<td></td>
+<td>HIGH_SYNAPSE_WEIGHT</td>
+<td>float</td>
+<td>The high synapse weight value. Default is 1e6.</td>
 </tr>
 <tr class="even">
-<td><a href="../reference/converter.CRI_Converter.html#hs_api.converter.CRI_Converter">converter.CRI_Converter</a></td>
-<td>A class to convert a neural network model into an equivalent model compatible</td>
+<td>axon_dict</td>
+<td>defaultdict of list</td>
+<td>A dictionary mapping each axon to a list of connected neurons.</td>
 </tr>
 <tr class="odd">
-<td><a href="../reference/converter.BN_Folder.html#hs_api.converter.BN_Folder">converter.BN_Folder</a></td>
-<td>A class to perform batch normalization folding on a model.</td>
+<td>neuron_dict</td>
+<td>defaultdict of list</td>
+<td>A dictionary mapping each neuron to a list of connected axons.</td>
 </tr>
 <tr class="even">
-<td><a href="../reference/converter.Quantize_Network.html#hs_api.converter.Quantize_Network">converter.Quantize_Network</a></td>
-<td>A class to perform quantization on a neural network.</td>
+<td>output_neurons</td>
+<td>list</td>
+<td>A list of output neurons.</td>
 </tr>
 <tr class="odd">
-<td><a href="../reference/converter.weight_quantization.html#hs_api.converter.weight_quantization">converter.weight_quantization</a></td>
-<td>Applies weight quantization to the input.</td>
+<td>input_shape</td>
+<td>numpy.ndarray</td>
+<td>The shape of the input data.</td>
+</tr>
+<tr class="even">
+<td>num_steps</td>
+<td>int</td>
+<td>The number of time steps in the input.</td>
+</tr>
+<tr class="odd">
+<td>axon_offset</td>
+<td>int</td>
+<td>The current offset for axon indexing.</td>
+</tr>
+<tr class="even">
+<td>neuron_offset</td>
+<td>int</td>
+<td>The current offset for neuron indexing.</td>
+</tr>
+<tr class="odd">
+<td>backend</td>
+<td>str</td>
+<td>The backend to use.</td>
+</tr>
+<tr class="even">
+<td>save_input</td>
+<td>bool</td>
+<td>Whether to save the input data.</td>
+</tr>
+<tr class="odd">
+<td>bias_start_idx</td>
+<td>int or None</td>
+<td>The starting index for bias neurons.</td>
+</tr>
+<tr class="even">
+<td>curr_input</td>
+<td>np.ndarray or None</td>
+<td>The current input data.</td>
+</tr>
+<tr class="odd">
+<td>input_layer</td>
+<td>int</td>
+<td>The index of the input layer.</td>
+</tr>
+<tr class="even">
+<td>output_layer</td>
+<td>int</td>
+<td>The index of the output layer.</td>
+</tr>
+<tr class="odd">
+<td>layer_index</td>
+<td>int</td>
+<td>The current layer index.</td>
+</tr>
+<tr class="even">
+<td>total_axonSyn</td>
+<td>int</td>
+<td>The total number of axon synapses.</td>
+</tr>
+<tr class="odd">
+<td>total_neuronSyn</td>
+<td>int</td>
+<td>The total number of neuron synapses.</td>
+</tr>
+<tr class="even">
+<td>max_fan</td>
+<td>int</td>
+<td>The maximum fan-out.</td>
+</tr>
+<tr class="odd">
+<td>v_threshold</td>
+<td>float</td>
+<td>The voltage threshold for the neurons.</td>
+</tr>
+<tr class="even">
+<td>q</td>
+<td>np.ndarray or None</td>
+<td>The q matrix for attention conversion.</td>
+</tr>
+<tr class="odd">
+<td>v</td>
+<td>np.ndarray or None</td>
+<td>The v matrix for attention conversion.</td>
+</tr>
+<tr class="even">
+<td>k</td>
+<td>np.ndarray or None</td>
+<td>The k matrix for attention conversion.</td>
+</tr>
+<tr class="odd">
+<td>embed_dim</td>
+<td>int</td>
+<td>The embedding dimension.</td>
 </tr>
 </tbody>
 </table>
+</section>
+<section id="examples" class="level2">
+<h2 class="anchored" data-anchor-id="examples">Examples</h2>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> converter <span class="op">=</span> CRI_Converter()</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> converter.layer_converter(some_model)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> converter.input_converter(some_input_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="methods" class="level2">
+<h2 class="anchored" data-anchor-id="methods">Methods</h2>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><a href="#hs_api.converter.CRI_Converter.input_converter">input_converter</a></td>
+<td>Converts input data into a spike train and then into a list of axon indices.</td>
+</tr>
+<tr class="even">
+<td><a href="#hs_api.converter.CRI_Converter.layer_converter">layer_converter</a></td>
+<td>Converts a model into a CRI-compatible model.</td>
+</tr>
+<tr class="odd">
+<td><a href="#hs_api.converter.CRI_Converter.run_CRI_hw">run_CRI_hw</a></td>
+<td>Runs a set of inputs through the hardware implementation of the network and gets the output predictions.</td>
+</tr>
+<tr class="even">
+<td><a href="#hs_api.converter.CRI_Converter.run_CRI_sw">run_CRI_sw</a></td>
+<td>Runs a set of inputs through the software simulation of the network and gets the output predictions.</td>
+</tr>
+</tbody>
+</table>
+<section id="hs_api.converter.CRI_Converter.input_converter" class="level3">
+<h3 class="anchored" data-anchor-id="hs_api.converter.CRI_Converter.input_converter">input_converter</h3>
+<p><code>converter.CRI_Converter.input_converter(self, input_data)</code></p>
+<p>Converts input data into a spike train and then into a list of axon indices.</p>
+<section id="parameters-1" class="level4">
+<h4 class="anchored" data-anchor-id="parameters-1">Parameters</h4>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>input_data</code></td>
+<td>torch.Tensor</td>
+<td>The input data.</td>
+<td>required</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="returns" class="level4">
+<h4 class="anchored" data-anchor-id="returns">Returns</h4>
+<table class="table">
+<colgroup>
+<col style="width: 23%">
+<col style="width: 76%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>list of list of str</td>
+<td>The batch of spikes, with each spike represented by its axon index.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="examples-1" class="level4">
+<h4 class="anchored" data-anchor-id="examples-1">Examples</h4>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> converter <span class="op">=</span> CRI_Converter()</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> converter.input_converter(some_input_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+<section id="hs_api.converter.CRI_Converter.layer_converter" class="level3">
+<h3 class="anchored" data-anchor-id="hs_api.converter.CRI_Converter.layer_converter">layer_converter</h3>
+<p><code>converter.CRI_Converter.layer_converter(self, model)</code></p>
+<p>Converts a model into a CRI-compatible model.</p>
+<section id="parameters-2" class="level4">
+<h4 class="anchored" data-anchor-id="parameters-2">Parameters</h4>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>model</code></td>
+<td>torch.nn.Module</td>
+<td>The input model.</td>
+<td>required</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="examples-2" class="level4">
+<h4 class="anchored" data-anchor-id="examples-2">Examples</h4>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> converter <span class="op">=</span> CRI_Converter()</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> converter.layer_converter(some_model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+<section id="hs_api.converter.CRI_Converter.run_CRI_hw" class="level3">
+<h3 class="anchored" data-anchor-id="hs_api.converter.CRI_Converter.run_CRI_hw">run_CRI_hw</h3>
+<p><code>converter.CRI_Converter.run_CRI_hw(self, inputList, hardwareNetwork)</code></p>
+<p>Runs a set of inputs through the hardware implementation of the network and gets the output predictions.</p>
+<section id="parameters-3" class="level4">
+<h4 class="anchored" data-anchor-id="parameters-3">Parameters</h4>
+<table class="table">
+<colgroup>
+<col style="width: 14%">
+<col style="width: 15%">
+<col style="width: 62%">
+<col style="width: 8%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>inputList</code></td>
+<td>list of list of str</td>
+<td>The input data, where each item is a list of axon indices representing the spikes.</td>
+<td>required</td>
+</tr>
+<tr class="even">
+<td><code>hardwareNetwork</code></td>
+<td>object</td>
+<td>The hardware network object.</td>
+<td>required</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="returns-1" class="level4">
+<h4 class="anchored" data-anchor-id="returns-1">Returns</h4>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>list of int</td>
+<td>The output predictions.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="examples-3" class="level4">
+<h4 class="anchored" data-anchor-id="examples-3">Examples</h4>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> converter <span class="op">=</span> CRI_Converter()</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> converter.run_CRI_hw(some_inputList, some_hardwareNetwork)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+<section id="hs_api.converter.CRI_Converter.run_CRI_sw" class="level3">
+<h3 class="anchored" data-anchor-id="hs_api.converter.CRI_Converter.run_CRI_sw">run_CRI_sw</h3>
+<p><code>converter.CRI_Converter.run_CRI_sw(self, inputList, softwareNetwork)</code></p>
+<p>Runs a set of inputs through the software simulation of the network and gets the output predictions.</p>
+<section id="parameters-4" class="level4">
+<h4 class="anchored" data-anchor-id="parameters-4">Parameters</h4>
+<table class="table">
+<colgroup>
+<col style="width: 14%">
+<col style="width: 15%">
+<col style="width: 62%">
+<col style="width: 8%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>inputList</code></td>
+<td>list of list of str</td>
+<td>The input data, where each item is a list of axon indices representing the spikes.</td>
+<td>required</td>
+</tr>
+<tr class="even">
+<td><code>softwareNetwork</code></td>
+<td>object</td>
+<td>The software network object.</td>
+<td>required</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="returns-2" class="level4">
+<h4 class="anchored" data-anchor-id="returns-2">Returns</h4>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>list of int</td>
+<td>The output predictions.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="examples-4" class="level4">
+<h4 class="anchored" data-anchor-id="examples-4">Examples</h4>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> converter <span class="op">=</span> CRI_Converter()</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> converter.run_CRI_sw(some_inputList, some_softwareNetwork)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
+</section>
+</section>
 </section>
 </section>
 
