@@ -17,27 +17,23 @@ jobs:
       - name: Install python
         uses: actions/setup-python@v2
         with:
-          python-version: 3.9
+          python-version: '3.10'
 
       - name: Install dependencies
         run: |
           pip install -r requirements.txt
+          git clone https://github.com/Integrated-Systems-Neuroengineering/connectome_utils.git
+          git clone https://${{ secrets.ACCESS_TOKEN }}@github.com/Integrated-Systems-Neuroengineering/hs_bridge.git
+          git clone https://github.com/Integrated-Systems-Neuroengineering/hs_api.git
+          cd hs_api
+          pip install -e .
+          cd ..
 
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
       - name: build docs
         run: |
           make docs
-
-      - name: Create Github Deployment
-        uses: bobheadxi/deployments@v0.4.3
-        id: deployment
-        with:
-          step: start
-          token: ${{ secrets.GITHUB_TOKEN }}
-          ref: ${{ github.head_ref }}
-          transient: true
-          logs: 'https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}'
 
       # - uses: peaceiris/actions-gh-pages@v3
       #   if: github.event_name == 'release'

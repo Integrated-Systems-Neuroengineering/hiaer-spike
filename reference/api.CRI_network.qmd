@@ -2,27 +2,28 @@
 
 `api.CRI_network(self, axons, connections, config, outputs, target=None, simDump=False, coreID=0, perturb=False, perturbMag=0)`
 
-This class represents a CRI network which initializes the network, checks hardware, generates connectome, formats input, reads and writes synapse, and runs simulation steps.
+This class represents a CRI network which initializes the network, checks hardware, generates connectome,
+formats input, reads and writes synapse, and runs simulation steps.
 
-## Parameters
+## Attributes
 
-| Name          | Type   | Description                                                                      | Default   |
-|---------------|--------|----------------------------------------------------------------------------------|-----------|
-| `axons`       | dict   | A dictionary containing axon data.                                               | required  |
-| `connections` | dict   | A dictionary containing connection data.                                         | required  |
-| `config`      | dict   | A dictionary containing configuration parameters for the network.                | required  |
-| `outputs`     | list   | A list of outputs for the network.                                               | required  |
-| `target`      | str    | A string indicating the target for the network. Default is None.                 | `None`    |
-| `simDump`     | bool   | A boolean value indicating whether to dump simulation results. Default is False. | `False`   |
-| `coreID`      | int    | An integer representing the core ID. Default is 0.                               | `0`       |
-| `perturb`     | bool   | A boolean value indicating whether to perturb the network. Default is False.     | `False`   |
-| `perturbMag`  | int    | An integer representing the magnitude of perturbation. Default is 0.             | `0`       |
+| Name            | Type   | Description                                                    |
+|-----------------|--------|----------------------------------------------------------------|
+| userAxons       | dict   | A copy of the axons dictionary provided by the user.           |
+| userConnections | dict   | A copy of the connections dictionary provided by the user.     |
+| config          | dict   | The configuration parameters for the network.                  |
+| perturb         | bool   | A boolean value indicating whether to perturb the network.     |
+| perturbMag      | int    | The magnitude of perturbation.                                 |
+| simpleSim       | str    | A string representing the simple simulation.                   |
+| key2index       | dict   | A dictionary mapping keys to indices.                          |
+| simDump         | bool   | A boolean value indicating whether to dump simulation results. |
+| connectome      | str    | A string representing the connectome of the network.           |
+| axons           | dict   | The formatted axons dictionary.                                |
+| connections     | dict   | The formatted connections dictionary.                          |
 
-## Notes
+## See Also
 
-The CRI network is initialized based on the provided parameters. The axons and connections are checked and formatted.
-The connectome for the network is generated. If a target is provided or if the hardware check is passed, the network
-is initialized to run on hardware. Otherwise, it is set to run a simple simulation.
+checkHw, gen_connectome, __format_input, write_synapse, write_listofSynapses, read_synapse, sim_flush, step, run_cont
 
 ## Examples
 
@@ -38,30 +39,26 @@ is initialized to run on hardware. Otherwise, it is set to run a simple simulati
 
 | Name | Description |
 | --- | --- |
-| [checkHw](#hs_api.api.CRI_network.checkHw) | This function checks if the magic file exists to demark that we're running on a system with CRI hardware accessible. |
-| [gen_connectome](#hs_api.api.CRI_network.gen_connectome) | This function generates a connectome for the CRI network. |
-| [read_synapse](#hs_api.api.CRI_network.read_synapse) | This function reads a synapse from the connectome. |
-| [run_cont](#hs_api.api.CRI_network.run_cont) | This function runs a continuous simulation. |
-| [sim_flush](#hs_api.api.CRI_network.sim_flush) | This function flushes the simulation results to a file. |
-| [step](#hs_api.api.CRI_network.step) | This function runs a step of the simulation. |
-| [write_listofSynapses](#hs_api.api.CRI_network.write_listofSynapses) | This function writes a list of synapses to the connectome. |
-| [write_synapse](#hs_api.api.CRI_network.write_synapse) | This function writes a synapse to the connectome. |
+| [checkHw](#hs_api.api.CRI_network.checkHw) | Checks if the magic file exists to demark that we're running on a system with CRI hardware accessible. |
+| [gen_connectome](#hs_api.api.CRI_network.gen_connectome) | Generates a connectome for the CRI network. |
+| [read_synapse](#hs_api.api.CRI_network.read_synapse) | Reads a synapse from the connectome. |
+| [run_cont](#hs_api.api.CRI_network.run_cont) | Runs a continuous simulation. |
+| [sim_flush](#hs_api.api.CRI_network.sim_flush) | Flushes the simulation results to a file. |
+| [step](#hs_api.api.CRI_network.step) | Runs a step of the simulation. |
+| [write_listofSynapses](#hs_api.api.CRI_network.write_listofSynapses) | Writes a list of synapses to the connectome. |
+| [write_synapse](#hs_api.api.CRI_network.write_synapse) | Writes a synapse to the connectome. |
 
 ### checkHw { #hs_api.api.CRI_network.checkHw }
 
 `api.CRI_network.checkHw(self)`
 
-This function checks if the magic file exists to demark that we're running on a system with CRI hardware accessible.
+Checks if the magic file exists to demark that we're running on a system with CRI hardware accessible.
 
 #### Returns
 
 | Type   | Description                                     |
 |--------|-------------------------------------------------|
 | bool   | True if the magic file exists, False otherwise. |
-
-#### Notes
-
-The function checks fora file named "magic.txt" in the current directory. If it exists, the function returns True, indicating that we are running on a system with CRI hardware accessible.
 
 #### Examples
 
@@ -90,7 +87,7 @@ The function resets the count of neurons and creates a new connectome. It then a
 
 `api.CRI_network.read_synapse(self, preKey, postKey)`
 
-This function reads a synapse from the connectome.
+Reads a synapse from the connectome.
 
 #### Parameters
 
@@ -105,9 +102,11 @@ This function reads a synapse from the connectome.
 |--------|----------------------------|
 | int    | The weight of the synapse. |
 
-#### Notes
+#### Raises
 
-The function converts user-defined symbols to indices and reads the synapse based on the target.
+| Type      | Description                                        |
+|-----------|----------------------------------------------------|
+| Exception | If the target is not valid ("simpleSim" or "CRI"). |
 
 #### Examples
 
@@ -121,7 +120,7 @@ The function converts user-defined symbols to indices and reads the synapse base
 
 `api.CRI_network.run_cont(self, inputs)`
 
-This function runs a continuous simulation.
+Runs a continuous simulation.
 
 #### Parameters
 
@@ -129,9 +128,17 @@ This function runs a continuous simulation.
 |----------|--------------|-----------------------------------------------|-----------|
 | `inputs` | list of list | A list of lists of inputs for the simulation. | required  |
 
-#### Notes
+#### Returns
 
-The function converts symbols to internal indices and runs a continuous simulation using the CRI.
+| Type   | Description                                                                                                  |
+|--------|--------------------------------------------------------------------------------------------------------------|
+| tuple  | A tuple containing the spike list, a boolean indicating whether a break occurred, and the execution counter. |
+
+#### Raises
+
+| Type      | Description                                                                                                    |
+|-----------|----------------------------------------------------------------------------------------------------------------|
+| Exception | If the simulation dump flag is False and an error occurs during the conversion of neuron indices to user keys. |
 
 #### Examples
 
@@ -144,7 +151,7 @@ The function converts symbols to internal indices and runs a continuous simulati
 
 `api.CRI_network.sim_flush(self, file)`
 
-This function flushes the simulation results to a file.
+Flushes the simulation results to a file.
 
 #### Parameters
 
@@ -158,9 +165,11 @@ This function flushes the simulation results to a file.
 |--------|---------------|
 | None   |               |
 
-#### Notes
+#### Raises
 
-The function checks the target and flushes the simulation results to the specified file if the target is "CRI". If the target is "simpleSim", it raises an exception.
+| Type      | Description                                             |
+|-----------|---------------------------------------------------------|
+| Exception | If the target is not "CRI" or if the target is invalid. |
 
 #### Examples
 
@@ -173,7 +182,7 @@ The function checks the target and flushes the simulation results to the specifi
 
 `api.CRI_network.step(self, inputs, target='simpleSim', membranePotential=False)`
 
-This function runs a step of the simulation.
+Runs a step of the simulation.
 
 #### Parameters
 
@@ -189,9 +198,11 @@ This function runs a step of the simulation.
 |---------------|----------------------------------------------------------------------------------------|
 | list or tuple | The simulation outputs or a tuple containing the simulation outputs and spike outputs. |
 
-#### Notes
+#### Raises
 
-The function converts symbols to internal indices and runs a step of the simulation based on the target.
+| Type      | Description               |
+|-----------|---------------------------|
+| Exception | If the target is invalid. |
 
 #### Examples
 
@@ -204,7 +215,7 @@ The function converts symbols to internal indices and runs a step of the simulat
 
 `api.CRI_network.write_listofSynapses(self, preKeys, postKeys, weights)`
 
-This function writes a list of synapses to the connectome.
+Writes a list of synapses to the connectome.
 
 #### Parameters
 
@@ -213,10 +224,6 @@ This function writes a list of synapses to the connectome.
 | `preKeys`  | list of str | A list of strings representing the keys of the presynaptic neurons.  | required  |
 | `postKeys` | list of str | A list of strings representing the keys of the postsynaptic neurons. | required  |
 | `weights`  | list of int | A list of integers representing the weights of the synapses.         | required  |
-
-#### Notes
-
-The function iterates through the provided lists and calls the write_synapse method for each set of presynaptic key, postsynaptic key, and weight.
 
 #### Examples
 
@@ -232,7 +239,7 @@ The function iterates through the provided lists and calls the write_synapse met
 
 `api.CRI_network.write_synapse(self, preKey, postKey, weight)`
 
-This function writes a synapse to the connectome.
+Writes a synapse to the connectome.
 
 #### Parameters
 
@@ -242,9 +249,11 @@ This function writes a synapse to the connectome.
 | `postKey` | str    | A string representing the key of the postsynaptic neuron. | required  |
 | `weight`  | int    | An integer representing the weight of the synapse.        | required  |
 
-#### Notes
+#### Raises
 
-The function updates the synapse weight in the connectome and converts user-defined symbols to indices. It writes the synapse based on the target.
+| Type      | Description                                        |
+|-----------|----------------------------------------------------|
+| Exception | If the target is not valid ("simpleSim" or "CRI"). |
 
 #### Examples
 
