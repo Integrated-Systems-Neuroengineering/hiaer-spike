@@ -18,7 +18,7 @@ jobs:
         uses: actions/setup-python@v2
         with:
           python-version: 3.9
-        
+
       - name: Install dependencies
         run: |
           pip install -r requirements.txt
@@ -27,7 +27,7 @@ jobs:
         uses: quarto-dev/quarto-actions/setup@v2
       - name: build docs
         run: |
-        make docs
+          make docs
 
       - name: Create Github Deployment
         uses: bobheadxi/deployments@v0.4.3
