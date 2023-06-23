@@ -194,78 +194,25 @@ config['neuron_type'] = "I&F"
 config['global_neuron_params'] = {}
 config['global_neuron_params']['v_thr'] = int(quan_fun.v_threshold)
     
-# #Uncomment this to create a network running on the FPGA
-# hardwareNetwork = CRI_network(dict(cri_convert.axon_dict),
-#                               connections=dict(cri_convert.neuron_dict),
-#                               config=config,target='CRI', 
-#                               outputs = cri_convert.output_neurons,
-#                               coreID=1)
+#Create a network running on the FPGA
+hardwareNetwork = CRI_network(dict(cri_convert.axon_dict),
+                              connections=dict(cri_convert.neuron_dict),
+                              config=config,
+                              target='CRI', 
+                              outputs = cri_convert.output_neurons,
+                              coreID=1)
 
+#Create a network running on the software simulation
 softwareNetwork = CRI_network(dict(cri_convert.axon_dict),
                               connections=dict(cri_convert.neuron_dict),
-                              config=config,target='simpleSim', 
+                              config=config,
+                              target='simpleSim', 
                               outputs = cri_convert.output_neurons,
                               coreID=1)
 ```
 ### **Deploying the SNN on HiAER Spike**
 
-run_sw and run_hw are two helper functions for running the spiking neural network 
-
-```python
-def Run_sw(self,inputList,softwareNetwork):
-    predictions = []
-    total_time_cri = 0
-    #each image
-    for currInput in tqdm(inputList):
-        #reset the membrane potential to zero
-        softwareNetwork.simpleSim.initialize_sim_vars(len(self.neuron_dict))
-        spikeRate = [0]*10
-        #each time step
-        for slice in currInput:
-            start_time = time.time()
-            swSpike = softwareNetwork.step(slice, membranePotential=False)
-
-            end_time = time.time()
-            total_time_cri = total_time_cri + end_time-start_time
-            for spike in swSpike:
-                spikeIdx = int(spike) - self.bias_start_idx 
-                try: 
-                    if spikeIdx >= 0: 
-                        spikeRate[spikeIdx] += 1 
-                except:
-                    print("SpikeIdx: ", spikeIdx,"\n SpikeRate:",spikeRate)
-        predictions.append(spikeRate.index(max(spikeRate)))
-    print(f"Total simulation execution time: {total_time_cri:.5f} s")
-    return(predictions)
-```
-```python
-def run_CRI_hw(self,inputList,hardwareNetwork):
-    predictions = []
-    #each image
-    total_time_cri = 0
-    for currInput in tqdm(inputList):
-        #initiate the hardware for each image
-        hs_bridge.FPGA_Execution.fpga_controller.clear(len(self.neuron_dict), False, 0)  ##Num_neurons, simDump, coreOverride
-        spikeRate = [0]*10
-        #each time step
-        for slice in tqdm(currInput):
-            start_time = time.time()
-            hwSpike, latency, hbmAcc = hardwareNetwork.step(slice, membranePotential=False)
-            print(f'hwSpike: {hwSpike}\n. latency : {latency}\n. hbmAcc:{hbmAcc}')
-            end_time = time.time()
-            total_time_cri = total_time_cri + end_time-start_time
-            for spike in hwSpike:
-                # print(int(spike))
-                spikeIdx = int(spike) - self.bias_start_idx 
-                try: 
-                    if spikeIdx >= 0: 
-                        spikeRate[spikeIdx] += 1 
-                except:
-                    print("SpikeIdx: ", spikeIdx,"\n SpikeRate:",spikeRate)
-        predictions.append(spikeRate.index(max(spikeRate))) 
-    print(f"Total execution time CRIFPGA: {total_time_cri:.5f} s")
-    return(predictions)
-```
+Using the run_CRI_hw and run_CRI_sw method from the CRI_Converter class, we can deploy the converted SNN on the HiAER Spike platform.
 
 ```python
 cri_convert.bias_start_idx = int(cri_convert.output_neurons[0])
@@ -282,9 +229,9 @@ for img, label in tqdm(test_loader):
     cri_input = cri_convert.input_converter(img)
     output = None
     if RUN_HARDWARE:
-        output = torch.tensor(run_CRI_hw(cri_input,hardwareNetwork), dtype=float)
+        output = torch.tensor(cri_convert.run_CRI_hw(cri_input,hardwareNetwork), dtype=float)
     else:
-        output = torch.tensor(run_CRI_sw(cri_input,softwareNetwork), dtype=float)
+        output = torch.tensor(cri_convert.run_CRI_sw(cri_input,softwareNetwork), dtype=float)
     loss = loss_fun(output, label)
     test_samples += label.numel()
     test_loss += loss.item() * label.numel()
