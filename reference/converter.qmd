@@ -1,3 +1,93 @@
 # converter { #hs_api.converter }
 
 `converter`
+
+## Functions
+
+| Name | Description |
+| --- | --- |
+| [isSNNLayer](#hs_api.converter.isSNNLayer) | Checks if a layer is an instance of a Spiking Neural Network (SNN) layer. |
+| [pad_with](#hs_api.converter.pad_with) | Pads an array with a specified value. |
+| [weight_quantization](#hs_api.converter.weight_quantization) | Applies weight quantization to the input. |
+
+### isSNNLayer { #hs_api.converter.isSNNLayer }
+
+`converter.isSNNLayer(layer)`
+
+Checks if a layer is an instance of a Spiking Neural Network (SNN) layer.
+
+#### Parameters
+
+| Name    | Type   | Description         | Default   |
+|---------|--------|---------------------|-----------|
+| `layer` | object | The layer to check. | required  |
+
+#### Returns
+
+| Type   | Description                                                       |
+|--------|-------------------------------------------------------------------|
+| bool   | True if the layer is an instance of a SNN layer, False otherwise. |
+
+#### Examples
+
+```python
+>>> from norse.torch.module.lif import LIFCell
+>>> layer = LIFCell()
+>>> isSNNLayer(layer)
+True
+```
+
+### pad_with { #hs_api.converter.pad_with }
+
+`converter.pad_with(vector, pad_width, iaxis, kwargs)`
+
+Pads an array with a specified value.
+
+#### Parameters
+
+| Name        | Type                    | Description                                        | Default   |
+|-------------|-------------------------|----------------------------------------------------|-----------|
+| `vector`    | numpy.ndarray           | Input array.                                       | required  |
+| `pad_width` | int or sequence of ints | Number of values padded to the edges of each axis. | required  |
+| `iaxis`     | int                     | An indicator of the current axis.                  | required  |
+| `kwargs`    | dict                    | Optional keyword arguments.                        | required  |
+
+#### Returns
+
+| Type          | Description       |
+|---------------|-------------------|
+| numpy.ndarray | The padded array. |
+
+#### Examples
+
+```python
+>>> import numpy as np
+>>> a = np.array([1, 2, 3, 4, 5])
+>>> np.pad(a, 2, pad_with, padder=2)
+array([2, 2, 1, 2, 3, 4, 5, 2, 2])
+```
+
+### weight_quantization { #hs_api.converter.weight_quantization }
+
+`converter.weight_quantization(b)`
+
+Applies weight quantization to the input.
+
+#### Parameters
+
+| Name   | Type   | Description                                     | Default   |
+|--------|--------|-------------------------------------------------|-----------|
+| `b`    | int    | The number of bits to use for the quantization. | required  |
+
+#### Returns
+
+| Type     | Description                                               |
+|----------|-----------------------------------------------------------|
+| function | A function that applies weight quantization to its input. |
+
+#### Examples
+
+```python
+>>> weight_quantization_func = weight_quantization(8)
+>>> weight_quantization_func(some_input)
+```
