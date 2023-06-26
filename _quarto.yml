@@ -68,7 +68,7 @@ quartodoc:
     - title: Converter
       desc: "hs_api.converter module"
       contents:
-        # - name: converter
+        - name: converter
         - converter.CRI_Converter
         - converter.BN_Folder
         - converter.Quantize_Network

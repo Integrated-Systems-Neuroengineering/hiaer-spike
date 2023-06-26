@@ -28,7 +28,6 @@ jobs:
           cd hs_api
           pip install -e .
           cd ..
-          python -c "import hs_api; from hs_api import converter"
           pip list | grep hs_api
 
       - name: Set up Quarto

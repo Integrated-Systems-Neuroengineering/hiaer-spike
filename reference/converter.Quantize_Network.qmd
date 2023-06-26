@@ -1,6 +1,6 @@
 # converter.Quantize_Network { #hs_api.converter.Quantize_Network }
 
-`converter.Quantize_Network(self, w_alpha=1, dynamic_alpha=False)`
+`converter.Quantize_Network(self, w_alpha, dynamic_alpha=False)`
 
 A class to perform quantization on a neural network.
 
@@ -8,7 +8,7 @@ A class to perform quantization on a neural network.
 
 | Name            | Type   | Description                                                      | Default   |
 |-----------------|--------|------------------------------------------------------------------|-----------|
-| `w_alpha`       | float  | The alpha value for the quantization. Default is 1.              | `1`       |
+| `w_alpha`       | float  | The alpha value for the quantization. Default is 1.              | required  |
 | `dynamic_alpha` | bool   | Whether to use dynamic alpha for quantization. Default is False. | `False`   |
 
 ## Attributes

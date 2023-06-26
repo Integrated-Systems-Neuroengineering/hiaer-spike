@@ -1,3 +1,8 @@
 pre-commit
 quartodoc
 click
+torch
+torchvision
+torchaudio
+snntorch
+spikingjelly
