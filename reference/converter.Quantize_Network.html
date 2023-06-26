@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.361">
+<meta name="generator" content="quarto-1.3.433">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -129,8 +129,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-tutorials">    
         <li>
-    <a class="dropdown-item" href="../menu/tutorials/cnn.html" rel="" target="">
- <span class="dropdown-text">CNN</span></a>
+    <a class="dropdown-item" href="../menu/tutorials/csnn.html" rel="" target="">
+ <span class="dropdown-text">CSNN</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../menu/tutorials/mnist.html" rel="" target="">
@@ -302,7 +302,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="hs_api.converter.Quantize_Network" class="level1">
 <h1>converter.Quantize_Network</h1>
-<p><code>converter.Quantize_Network(self, w_alpha=1, dynamic_alpha=False)</code></p>
+<p><code>converter.Quantize_Network(self, w_alpha, dynamic_alpha=False)</code></p>
 <p>A class to perform quantization on a neural network.</p>
 <section id="parameters" class="level2">
 <h2 class="anchored" data-anchor-id="parameters">Parameters</h2>
@@ -326,7 +326,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td><code>w_alpha</code></td>
 <td>float</td>
 <td>The alpha value for the quantization. Default is 1.</td>
-<td><code>1</code></td>
+<td>required</td>
 </tr>
 <tr class="even">
 <td><code>dynamic_alpha</code></td>

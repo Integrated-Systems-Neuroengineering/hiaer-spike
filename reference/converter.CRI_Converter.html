@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.361">
+<meta name="generator" content="quarto-1.3.433">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -129,8 +129,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-tutorials">    
         <li>
-    <a class="dropdown-item" href="../menu/tutorials/cnn.html" rel="" target="">
- <span class="dropdown-text">CNN</span></a>
+    <a class="dropdown-item" href="../menu/tutorials/csnn.html" rel="" target="">
+ <span class="dropdown-text">CSNN</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../menu/tutorials/mnist.html" rel="" target="">
@@ -304,16 +304,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="hs_api.converter.CRI_Converter" class="level1">
 <h1>converter.CRI_Converter</h1>
-<p><code>converter.CRI_Converter(self, num_steps=4, input_layer=0, output_layer=11, input_shape=(1, 28, 28), backend='spikingjelly', v_threshold=1000000.0, embed_dim=4)</code></p>
+<p><code>converter.CRI_Converter(self, num_steps, input_layer, output_layer, input_shape, v_threshold, embed_dim, backend='spikingjelly')</code></p>
 <p>A class to convert a neural network model into an equivalent model compatible with the CRI (Capacitive ReRAM Inverter) hardware.</p>
 <section id="parameters" class="level2">
 <h2 class="anchored" data-anchor-id="parameters">Parameters</h2>
 <table class="table">
 <colgroup>
-<col style="width: 15%">
-<col style="width: 13%">
-<col style="width: 53%">
-<col style="width: 17%">
+<col style="width: 11%">
+<col style="width: 9%">
+<col style="width: 66%">
+<col style="width: 12%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -327,44 +327,44 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <tr class="odd">
 <td><code>num_steps</code></td>
 <td>int</td>
-<td>The number of time steps in the input. Default is 4.</td>
-<td><code>4</code></td>
+<td>The number of time steps in the input.</td>
+<td>required</td>
 </tr>
 <tr class="even">
 <td><code>input_layer</code></td>
 <td>int</td>
-<td>The index of the input layer. Default is 0.</td>
-<td><code>0</code></td>
+<td>The index of the first pytorch layer used as synapses.</td>
+<td>required</td>
 </tr>
 <tr class="odd">
 <td><code>output_layer</code></td>
 <td>int</td>
-<td>The index of the output layer. Default is 11.</td>
-<td><code>11</code></td>
+<td>The index of the last pytorch layer used as synapses.</td>
+<td>required</td>
 </tr>
 <tr class="even">
 <td><code>input_shape</code></td>
 <td>tuple of int</td>
 <td>The shape of the input data. Default is (1, 28, 28).</td>
-<td><code>(1, 28, 28)</code></td>
+<td>required</td>
 </tr>
 <tr class="odd">
 <td><code>backend</code></td>
 <td>str</td>
-<td>The backend to use. Default is ‘spikingjelly’.</td>
+<td>The backend to use. Currently Support SpikingJelly and snnTorch. Default is ‘spikingjelly’.</td>
 <td><code>'spikingjelly'</code></td>
 </tr>
 <tr class="even">
 <td><code>v_threshold</code></td>
 <td>float</td>
-<td>The voltage threshold for the neurons. Default is 1e6.</td>
-<td><code>1000000.0</code></td>
+<td>The voltage threshold for the neurons. It should be set to the v_threshold of Quantize Network.</td>
+<td>required</td>
 </tr>
 <tr class="odd">
 <td><code>embed_dim</code></td>
 <td>int</td>
-<td>The embedding dimension. Default is 4.</td>
-<td><code>4</code></td>
+<td>The embedding dimension. Only used for spikeformer.</td>
+<td>required</td>
 </tr>
 </tbody>
 </table>
