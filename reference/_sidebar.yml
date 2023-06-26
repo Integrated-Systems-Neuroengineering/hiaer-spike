@@ -6,7 +6,6 @@ website:
       - reference/api.CRI_network.qmd
       section: API
     - contents:
-      - reference/converter.qmd
       - reference/converter.CRI_Converter.qmd
       - reference/converter.BN_Folder.qmd
       - reference/converter.Quantize_Network.qmd

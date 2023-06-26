@@ -28,13 +28,15 @@ jobs:
           cd hs_api
           pip install -e .
           cd ..
+          python -c "import hs_api; from hs_api import converter"
+          pip list | grep hs_api
 
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
       - name: build docs
         run: |
           make docs
-          
+
       - name: Render and Publish
         uses: quarto-dev/quarto-actions/publish@v2
         with:
