@@ -23,8 +23,8 @@ website:
         href: index.qmd
       - text: Tutorials
         menu:
-          - text: CNN
-            href: menu/tutorials/cnn.qmd
+          - text: CSNN
+            href: menu/tutorials/csnn.qmd
           - text: MNIST
             href: menu/tutorials/mnist.qmd
       - text: API
@@ -46,7 +46,7 @@ website:
             url: https://github.com/Integrated-Systems-Neuroengineering/hiaer-spike/issues/new
       - text: "<img src='/images/favicon/isn_brain_only/favicon.ico' alt='ISN Lab Logo' height='25px'> ISN @ UC San Diego"
         href: https://isn.ucsd.edu/
-  
+
   sidebar:
     - id: reference
       contents: "reference/_sidebar.yml"
@@ -64,7 +64,7 @@ quartodoc:
       desc: "hs_api.api module"
       contents:
         - api.CRI_network
-    
+
     - title: Converter
       desc: "hs_api.converter module"
       contents:
