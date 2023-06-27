@@ -7,7 +7,7 @@ format:
 
 ### **Running on the Simulator**
 
-On your local machine you can run networks using the Python based simulator of the CRI hardware.
+On your local machine you can run networks using the Python based simulator of the CRI hardware. Please refer to the [Video Tutorial](submitting-jobs.html#video-tutorial) for a detailed walkthrough of how to interface with the `hs_api`.
 
 ### **Defining a Network**
 Users are expected to provide three data structures in order to define a network
@@ -22,7 +22,7 @@ The configuration dictionary specifies a few properties that are shared by every
 
 ```python
 configuration = {}
-configuration[neuron_type'] = I&F
+configuration['neuron_type'] = I&F
 configuration['global_neuron_params'] = {}
 configuration['global_neuron_params']['v_thr'] = 4
 ```
@@ -35,16 +35,16 @@ configuration['global_neuron_params']['v_thr'] = 4
 axons = {'alpha': [('a', 3)], 'beta': [('d', 3)]}
 ```
 
-- Defining the Connections Dictionary: 
-    
+- Defining the Connections Dictionary:
+
     The connections dictionary defines the neurons in the network and the connections between them. Each key in the dictionary is the name of a neuron. Of note the names of neurons in the connections dictionary and the names of axons in the axons dictionary must be mutually exclusive. Each value is a list of two element tuples. Each tuple defines a synapse between neurons in the network. The first element is the name of the postsynaptic neuron and the the second element is the weight of the synapse. Synapse weights must be integers but they may be positive or negative. If a neuron has no outgoing synapses it’s synapse list may be left empty.
 
 ```python
 connections = {'a': [('b', 1)], 'b': [], 'c': [], 'd': [('c', 1)]}
 ```
 
-- Defining the Outputs List: 
-  
+- Defining the Outputs List:
+
     The outputs list defines the neurons in the network the user wishes to receive spikes from. Each element in the list is the key of a neuron in the connections dictionary.
 
 ```python
@@ -52,12 +52,18 @@ outputs = ['a', 'b']
 ```
 
 #### **Defining Stochastic Behavior**
-HiAER-Spike supports randomly perturbing the membrane potential of neurons at each timestep of execution. To enable this perturbation the perturb variable is set to True. The amplitude of this perturbation can also be scaled by setting the perturbMag variable (default = 0). perturbMag takes integer values between 0 and 18 and multiplies the random noise to be added to the membrane potential by 2<sup>perturbMag</sup>.
+HiAER-Spike supports randomly perturbing the membrane potential of neurons at each timestep of execution. To enable this perturbation the perturbMag (default = `None`) variable needs to be set to some value other than `None` and be < 16. perturbMag takes integer values between 0 and 16 and divides the random noise to be added to the membrane potential by 2<sup>perturbMag</sup>.
 
 ```python
-perturb = True
 perturbMag = 2
 ```
+
+#### **Defining Leakage**
+Our systems supports Leaky Integrate and Fire (LIF) neurons. Users must set the leakage time constant. At any step for on-fired neurons, the membrane potential will be calculated using the following equation:
+
+$$ V = V - \frac{V}{2^{leakage}} $$
+
+ where V is the membrane potential and leakage is the leakage time constant. Leakage must be an integer $\leq 2^6$.
 
 #### **Initializing a network**
 Once we’ve defined the above dictionaries and list we must pass them to the CRI_network constructor to create a CRI_network object.

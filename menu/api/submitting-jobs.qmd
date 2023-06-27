@@ -5,7 +5,8 @@ format:
     page-layout: full
 ---
 
-The same Python scripts you’ve developed and run on your local machine can be deployed to the CRI servers to run on the actual CRI hardware. Just make sure all the libraries you import in your script are available on the [CRI servers](https://github.com/Integrated-Systems-Neuroengineering/L2S/blob/main/Python%20libraries%20present%20on%20the%20CRI%20servers). The CRI hardware is hosted in the San Diego Supercomputing Center and jobs may be submitted to run on the hardware via the [Neuroscience Gateway](https://www.nsgportal.org/index.html). First you must register an account with Neuroscience Gateway in order to submit jobs. Perform the following steps to submit a task to NSG
+## Walkthrough
+The same Python scripts you’ve developed and run on your local machine can be deployed to the CRI servers to run on the actual CRI hardware. Just make sure all the libraries you import in your script are available on the [CRI servers](https://github.com/Integrated-Systems-Neuroengineering/L2S/blob/main/Python%20libraries%20present%20on%20the%20CRI%20servers). The CRI hardware is hosted in the San Diego Supercomputing Center and jobs may be submitted to run on the hardware via the [Neuroscience Gateway](https://www.nsgportal.org/index.html). First you must register an account with Neuroscience Gateway in order to submit jobs. Perform the following steps to submit a task to NSG.
 
 1. Put your CRI Python script in a folder of any name, then zip the folder
 2. Log into [NSG](https://nsgprod.sdsc.edu:8443/portal2/login!input.action).
@@ -22,8 +23,8 @@ The same Python scripts you’ve developed and run on your local machine can be 
 7. Assign the zip you just uploaded as data as the input to the task.
 8. Select Python for CRI as the software to run.
 9. Set parameters for the task:
-    - Set execution ‘wall time’, cores, and GB of DRAM if you wish. Please be consideret to others and only request the hardware you need.
-    - Enter the name of your.py python scrip as the “input” using the same name as is in the zip folder.
+    - Set execution ‘wall time’, cores, and GB of DRAM if you wish. Please be considerate to others and only request the hardware you need.
+    - Enter the name of your `.py` python script as the “input” using the same name as is in the zip folder.
     - Enter a name for the “output” (optional)
 10. Click save parameters
 11. Click save and run to run the task.
@@ -32,6 +33,14 @@ The same Python scripts you’ve developed and run on your local machine can be 
 14. View status if desired, refresh as needed, or just watch for the task done email.
 15. When it is done select the ‘view output’ for that task on the task list.
 16. Download outputs and decompress. Job ‘inputs’ is displayed as garbage.
+
+## Video Tutorial
+**Note**: Please ignore the installation part of the video tutorial. The new python library is called `hs_api` and not `l2s`.
+
+{{< video https://www.youtube.com/embed/jSdxVxQQbAw
+    title="Interfacing with ISN CRI Hardware"
+>}}
+
 
 ## Python libraries installed on the CRI servers
 
@@ -87,5 +96,5 @@ The same Python scripts you’ve developed and run on your local machine can be 
   |sklearn            |           0.0|
   |threadpoolctl    |          3.1.0 |
   |tqdm              |         4.63.0 |
-  |urllib3          |          1.26.8| 
+  |urllib3          |          1.26.8|
   |wheel          |            0.37.1|
