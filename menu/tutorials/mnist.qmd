@@ -184,7 +184,7 @@ net_quan = qn.quantize(net_bn)
 
 #Set the parameters for conversion
 input_layer = 1 #first pytorch layer that acts as synapses
-output_layer = 4 #last pytorch layer that acts as synapses
+output_layer = 3 #last pytorch layer that acts as synapses
 input_shape = (1, 28, 28)
 backend = 'spikingjelly'
 v_threshold = qn.v_threshold
