@@ -166,7 +166,9 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#python-libraries-installed-on-the-cri-servers" id="toc-python-libraries-installed-on-the-cri-servers" class="nav-link active" data-scroll-target="#python-libraries-installed-on-the-cri-servers">Python libraries installed on the CRI servers</a></li>
+  <li><a href="#walkthrough" id="toc-walkthrough" class="nav-link active" data-scroll-target="#walkthrough">Walkthrough</a></li>
+  <li><a href="#video-tutorial" id="toc-video-tutorial" class="nav-link" data-scroll-target="#video-tutorial">Video Tutorial</a></li>
+  <li><a href="#python-libraries-installed-on-the-cri-servers" id="toc-python-libraries-installed-on-the-cri-servers" class="nav-link" data-scroll-target="#python-libraries-installed-on-the-cri-servers">Python libraries installed on the CRI servers</a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/Integrated-Systems-Neuroengineering/hiaer-spike/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
@@ -190,7 +192,9 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>The same Python scripts you’ve developed and run on your local machine can be deployed to the CRI servers to run on the actual CRI hardware. Just make sure all the libraries you import in your script are available on the <a href="https://github.com/Integrated-Systems-Neuroengineering/L2S/blob/main/Python%20libraries%20present%20on%20the%20CRI%20servers">CRI servers</a>. The CRI hardware is hosted in the San Diego Supercomputing Center and jobs may be submitted to run on the hardware via the <a href="https://www.nsgportal.org/index.html">Neuroscience Gateway</a>. First you must register an account with Neuroscience Gateway in order to submit jobs. Perform the following steps to submit a task to NSG</p>
+<section id="walkthrough" class="level2">
+<h2 class="anchored" data-anchor-id="walkthrough">Walkthrough</h2>
+<p>The same Python scripts you’ve developed and run on your local machine can be deployed to the CRI servers to run on the actual CRI hardware. Just make sure all the libraries you import in your script are available on the <a href="https://github.com/Integrated-Systems-Neuroengineering/L2S/blob/main/Python%20libraries%20present%20on%20the%20CRI%20servers">CRI servers</a>. The CRI hardware is hosted in the San Diego Supercomputing Center and jobs may be submitted to run on the hardware via the <a href="https://www.nsgportal.org/index.html">Neuroscience Gateway</a>. First you must register an account with Neuroscience Gateway in order to submit jobs. Perform the following steps to submit a task to NSG.</p>
 <ol type="1">
 <li>Put your CRI Python script in a folder of any name, then zip the folder</li>
 <li>Log into <a href="https://nsgprod.sdsc.edu:8443/portal2/login!input.action">NSG</a>.</li>
@@ -208,8 +212,8 @@ ul.task-list li input[type="checkbox"] {
 <li>Select Python for CRI as the software to run.</li>
 <li>Set parameters for the task:
 <ul>
-<li>Set execution ‘wall time’, cores, and GB of DRAM if you wish. Please be consideret to others and only request the hardware you need.</li>
-<li>Enter the name of your.py python scrip as the “input” using the same name as is in the zip folder.</li>
+<li>Set execution ‘wall time’, cores, and GB of DRAM if you wish. Please be considerate to others and only request the hardware you need.</li>
+<li>Enter the name of your <code>.py</code> python script as the “input” using the same name as is in the zip folder.</li>
 <li>Enter a name for the “output” (optional)</li>
 </ul></li>
 <li>Click save parameters</li>
@@ -220,6 +224,12 @@ ul.task-list li input[type="checkbox"] {
 <li>When it is done select the ‘view output’ for that task on the task list.</li>
 <li>Download outputs and decompress. Job ‘inputs’ is displayed as garbage.</li>
 </ol>
+</section>
+<section id="video-tutorial" class="level2">
+<h2 class="anchored" data-anchor-id="video-tutorial">Video Tutorial</h2>
+<p><strong>Note</strong>: Please ignore the installation part of the video tutorial. The new python library is called <code>hs_api</code> and not <code>l2s</code>.</p>
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/jSdxVxQQbAw" title="Interfacing with ISN CRI Hardware" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+</section>
 <section id="python-libraries-installed-on-the-cri-servers" class="level2">
 <h2 class="anchored" data-anchor-id="python-libraries-installed-on-the-cri-servers">Python libraries installed on the CRI servers</h2>
 <table class="table">

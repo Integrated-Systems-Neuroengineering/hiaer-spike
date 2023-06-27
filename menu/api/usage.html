@@ -95,6 +95,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <link rel="stylesheet" href="../../styles.css">
 </head>
@@ -227,7 +229,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="running-on-the-simulator" class="level3">
 <h3 class="anchored" data-anchor-id="running-on-the-simulator"><strong>Running on the Simulator</strong></h3>
-<p>On your local machine you can run networks using the Python based simulator of the CRI hardware.</p>
+<p>On your local machine you can run networks using the Python based simulator of the CRI hardware. Please refer to the <a href="submitting-jobs.html#video-tutorial">Video Tutorial</a> for a detailed walkthrough of how to interface with the <code>hs_api</code>.</p>
 </section>
 <section id="defining-a-network" class="level3">
 <h3 class="anchored" data-anchor-id="defining-a-network"><strong>Defining a Network</strong></h3>
@@ -243,8 +245,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul></li>
 </ul>
 <div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>configuration <span class="op">=</span> {}</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>configuration[neuron_type<span class="st">'] = I&amp;F</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="er">configuration</span>[<span class="st">'global_neuron_params'</span>] <span class="op">=</span> {}</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>configuration[<span class="st">'neuron_type'</span>] <span class="op">=</span> I<span class="op">&amp;</span>F</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>configuration[<span class="st">'global_neuron_params'</span>] <span class="op">=</span> {}</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>configuration[<span class="st">'global_neuron_params'</span>][<span class="st">'v_thr'</span>] <span class="op">=</span> <span class="dv">4</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
 <li><p>Defining the Axons Dictionary</p>
@@ -264,9 +266,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="defining-stochastic-behavior" class="level4">
 <h4 class="anchored" data-anchor-id="defining-stochastic-behavior"><strong>Defining Stochastic Behavior</strong></h4>
-<p>HiAER-Spike supports randomly perturbing the membrane potential of neurons at each timestep of execution. To enable this perturbation the perturb variable is set to True. The amplitude of this perturbation can also be scaled by setting the perturbMag variable (default = 0). perturbMag takes integer values between 0 and 18 and multiplies the random noise to be added to the membrane potential by 2<sup>perturbMag</sup>.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>perturb <span class="op">=</span> <span class="va">True</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>perturbMag <span class="op">=</span> <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>HiAER-Spike supports randomly perturbing the membrane potential of neurons at each timestep of execution. To enable this perturbation the perturbMag (default = <code>None</code>) variable needs to be set to some value other than <code>None</code> and be &lt; 16. perturbMag takes integer values between 0 and 16 and divides the random noise to be added to the membrane potential by 2<sup>perturbMag</sup>.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>perturbMag <span class="op">=</span> <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="defining-leakage" class="level4">
+<h4 class="anchored" data-anchor-id="defining-leakage"><strong>Defining Leakage</strong></h4>
+<p>Our systems supports Leaky Integrate and Fire (LIF) neurons. Users must set the leakage time constant. At any step for on-fired neurons, the membrane potential will be calculated using the following equation:</p>
+<p><span class="math display">\[ V = V - \frac{V}{2^{leakage}} \]</span></p>
+<p>where V is the membrane potential and leakage is the leakage time constant. Leakage must be an integer <span class="math inline">\(\leq 2^6\)</span>.</p>
 </section>
 <section id="initializing-a-network" class="level4">
 <h4 class="anchored" data-anchor-id="initializing-a-network"><strong>Initializing a network</strong></h4>
