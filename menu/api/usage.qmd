@@ -52,7 +52,7 @@ outputs = ['a', 'b']
 ```
 
 #### **Defining Stochastic Behavior**
-HiAER-Spike supports randomly perturbing the membrane potential of neurons at each timestep of execution. To enable this perturbation the perturbMag (default = `None`) variable needs to be set to some value other than `None` and be < 16. perturbMag takes integer values between 0 and 16 and divides the random noise to be added to the membrane potential by 2<sup>perturbMag</sup>.
+HiAER-Spike supports randomly perturbing the membrane potential of neurons at each timestep of execution. To enable this perturbation the perturbMag (default = `None`) variable needs to be set to some value other than `None` and be < 17. Random noise is generated at each timestep for each neuron to be added to the neurons membrane potential. This noise in generated as a 17 bit signed integer. When perturbMag is specified the noise is either right or left shifted inorder to match the number of bits specified by perturbMag
 
 ```python
 perturbMag = 2
@@ -97,4 +97,11 @@ Once the CRI_network class the topology of the network is fixed, that is what ax
 
 ```python
 network.write_synapse('a', 'b', 2)
+```
+
+#### **Updating Perturbation Magnitude**
+The perturbMag variable can also be updated after network creation. The new value is simply passed to a function call.
+
+```python
+network.set_perturbMag(3)
 ```
