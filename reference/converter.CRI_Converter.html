@@ -328,25 +328,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td><code>num_steps</code></td>
 <td>int</td>
 <td>The number of time steps in the input.</td>
-<td>required</td>
+<td><em>required</em></td>
 </tr>
 <tr class="even">
 <td><code>input_layer</code></td>
 <td>int</td>
 <td>The index of the first pytorch layer used as synapses.</td>
-<td>required</td>
+<td><em>required</em></td>
 </tr>
 <tr class="odd">
 <td><code>output_layer</code></td>
 <td>int</td>
 <td>The index of the last pytorch layer used as synapses.</td>
-<td>required</td>
+<td><em>required</em></td>
 </tr>
 <tr class="even">
 <td><code>input_shape</code></td>
 <td>tuple of int</td>
 <td>The shape of the input data. Default is (1, 28, 28).</td>
-<td>required</td>
+<td><em>required</em></td>
 </tr>
 <tr class="odd">
 <td><code>backend</code></td>
@@ -358,13 +358,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td><code>v_threshold</code></td>
 <td>float</td>
 <td>The voltage threshold for the neurons. It should be set to the v_threshold of Quantize Network.</td>
-<td>required</td>
+<td><em>required</em></td>
 </tr>
 <tr class="odd">
 <td><code>embed_dim</code></td>
 <td>int</td>
 <td>The embedding dimension. Only used for spikeformer.</td>
-<td>required</td>
+<td><em>required</em></td>
 </tr>
 </tbody>
 </table>
@@ -557,7 +557,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td><code>input_data</code></td>
 <td>torch.Tensor</td>
 <td>The input data.</td>
-<td>required</td>
+<td><em>required</em></td>
 </tr>
 </tbody>
 </table>
@@ -609,7 +609,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td><code>model</code></td>
 <td>torch.nn.Module</td>
 <td>The input model.</td>
-<td>required</td>
+<td><em>required</em></td>
 </tr>
 </tbody>
 </table>
@@ -628,9 +628,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h4 class="anchored" data-anchor-id="parameters-3">Parameters</h4>
 <table class="table">
 <colgroup>
-<col style="width: 14%">
+<col style="width: 13%">
 <col style="width: 15%">
-<col style="width: 62%">
+<col style="width: 61%">
 <col style="width: 8%">
 </colgroup>
 <thead>
@@ -646,13 +646,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td><code>inputList</code></td>
 <td>list of list of str</td>
 <td>The input data, where each item is a list of axon indices representing the spikes.</td>
-<td>required</td>
+<td><em>required</em></td>
 </tr>
 <tr class="even">
 <td><code>hardwareNetwork</code></td>
 <td>object</td>
 <td>The hardware network object.</td>
-<td>required</td>
+<td><em>required</em></td>
 </tr>
 </tbody>
 </table>
@@ -688,9 +688,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h4 class="anchored" data-anchor-id="parameters-4">Parameters</h4>
 <table class="table">
 <colgroup>
-<col style="width: 14%">
+<col style="width: 13%">
 <col style="width: 15%">
-<col style="width: 62%">
+<col style="width: 61%">
 <col style="width: 8%">
 </colgroup>
 <thead>
@@ -706,13 +706,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td><code>inputList</code></td>
 <td>list of list of str</td>
 <td>The input data, where each item is a list of axon indices representing the spikes.</td>
-<td>required</td>
+<td><em>required</em></td>
 </tr>
 <tr class="even">
 <td><code>softwareNetwork</code></td>
 <td>object</td>
 <td>The software network object.</td>
-<td>required</td>
+<td><em>required</em></td>
 </tr>
 </tbody>
 </table>

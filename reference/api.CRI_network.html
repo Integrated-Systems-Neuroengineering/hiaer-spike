@@ -307,7 +307,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="hs_api.api.CRI_network" class="level1">
 <h1>api.CRI_network</h1>
-<p><code>api.CRI_network(self, axons, connections, config, outputs, target=None, simDump=False, coreID=0, perturb=False, perturbMag=0)</code></p>
+<p><code>api.CRI_network(self, axons, connections, config, outputs, target=None, simDump=False, coreID=0, perturbMag=None, leak=0)</code></p>
 <p>This class represents a CRI network which initializes the network, checks hardware, generates connectome, formats input, reads and writes synapse, and runs simulation steps.</p>
 <section id="attributes" class="level2">
 <h2 class="anchored" data-anchor-id="attributes">Attributes</h2>
@@ -486,8 +486,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <colgroup>
 <col style="width: 12%">
 <col style="width: 8%">
-<col style="width: 66%">
-<col style="width: 12%">
+<col style="width: 65%">
+<col style="width: 13%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -502,13 +502,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td><code>preKey</code></td>
 <td>str</td>
 <td>A string representing the key of the presynaptic neuron.</td>
-<td>required</td>
+<td><em>required</em></td>
 </tr>
 <tr class="even">
 <td><code>postKey</code></td>
 <td>str</td>
 <td>A string representing the key of the postsynaptic neuron.</td>
-<td>required</td>
+<td><em>required</em></td>
 </tr>
 </tbody>
 </table>
@@ -563,9 +563,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <table class="table">
 <colgroup>
 <col style="width: 12%">
-<col style="width: 17%">
-<col style="width: 57%">
-<col style="width: 13%">
+<col style="width: 16%">
+<col style="width: 56%">
+<col style="width: 14%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -580,7 +580,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td><code>inputs</code></td>
 <td>list of list</td>
 <td>A list of lists of inputs for the simulation.</td>
-<td>required</td>
+<td><em>required</em></td>
 </tr>
 </tbody>
 </table>
@@ -643,8 +643,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <colgroup>
 <col style="width: 7%">
 <col style="width: 7%">
-<col style="width: 73%">
-<col style="width: 10%">
+<col style="width: 72%">
+<col style="width: 11%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -659,7 +659,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td><code>file</code></td>
 <td>str</td>
 <td>A string representing the file to which to flush the simulation results.</td>
-<td>required</td>
+<td><em>required</em></td>
 </tr>
 </tbody>
 </table>
@@ -730,7 +730,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td><code>inputs</code></td>
 <td>list</td>
 <td>A list of inputs for the simulation.</td>
-<td>required</td>
+<td><em>required</em></td>
 </tr>
 <tr class="even">
 <td><code>target</code></td>
@@ -801,8 +801,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <colgroup>
 <col style="width: 11%">
 <col style="width: 12%">
-<col style="width: 66%">
-<col style="width: 10%">
+<col style="width: 65%">
+<col style="width: 11%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -817,19 +817,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td><code>preKeys</code></td>
 <td>list of str</td>
 <td>A list of strings representing the keys of the presynaptic neurons.</td>
-<td>required</td>
+<td><em>required</em></td>
 </tr>
 <tr class="even">
 <td><code>postKeys</code></td>
 <td>list of str</td>
 <td>A list of strings representing the keys of the postsynaptic neurons.</td>
-<td>required</td>
+<td><em>required</em></td>
 </tr>
 <tr class="odd">
 <td><code>weights</code></td>
 <td>list of int</td>
 <td>A list of integers representing the weights of the synapses.</td>
-<td>required</td>
+<td><em>required</em></td>
 </tr>
 </tbody>
 </table>
@@ -853,8 +853,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <colgroup>
 <col style="width: 12%">
 <col style="width: 8%">
-<col style="width: 66%">
-<col style="width: 12%">
+<col style="width: 65%">
+<col style="width: 13%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -869,19 +869,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td><code>preKey</code></td>
 <td>str</td>
 <td>A string representing the key of the presynaptic neuron.</td>
-<td>required</td>
+<td><em>required</em></td>
 </tr>
 <tr class="even">
 <td><code>postKey</code></td>
 <td>str</td>
 <td>A string representing the key of the postsynaptic neuron.</td>
-<td>required</td>
+<td><em>required</em></td>
 </tr>
 <tr class="odd">
 <td><code>weight</code></td>
 <td>int</td>
 <td>An integer representing the weight of the synapse.</td>
-<td>required</td>
+<td><em>required</em></td>
 </tr>
 </tbody>
 </table>
